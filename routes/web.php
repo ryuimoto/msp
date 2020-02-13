@@ -20,8 +20,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // ユーザー側
-// Route::get('login','User\Auth\LoginController@showLoginForm')->name('user.login');
-// Route::post('login','User\Auth\LoginController@login');
+// Route::get('/login','User\Auth\LoginController@showLoginForm')->name('user.login');
+// Route::post('/login','User\Auth\LoginController@login');
+
+// Route::get('/password/reset','User\Auth\LoginController@passwordReset')->name('user.password_reset');
+
+// Route::get('/password/reset/{token}','User\Auth\LoginController@passwordResetToken')->name('user.password_reset_token');
 
 // Route::get('logout','User\Auth\LoginController@logout')->name('user.logout');
 
@@ -51,13 +55,34 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // });
 
-
-
-
-
-// Route::middleware('auth:user')->group(function(){
-
-// });
-
-
 // 管理側
+// Route::prefix('admin432aKOiq')->group(function () {
+    // Route::get('login','Admin\Auth\LoginController@showLoginForm')->name('admin.login');
+
+    // Route::get('/password/reset','Admin\Auth\LoginController@passwordReset')->name('admin.password_reset');
+
+    // Route::get('/password/reset/{token}','Admin\Auth\LoginController@passwordResetToken')->name('admin.password_reset_token');
+
+    // Route::middleware('auth:admin')->group(function () {
+    //   Route::get('/','Admin\Auth\TopController@index')->name('admin.top');
+
+    //   Route::get('/users','Admin\UsersListController@index')->name('admin.users_list');
+
+    //   Route::get('/user/register','Admin\UserRegisterController@index')->name('admin.user_register');
+
+    //   Route::get('/user/{user_id}','Admin\UserRegisterEditController@index')->name('admin.user_register_edit');
+
+    //   Route::get('/sales/total','Admin\SalesTotalController@index')->name('admin.sales_total');
+
+    //   Route::get('/sales/total/{user_id}','Admin\IndividualTotalController@index')->name('admin.individual_total');
+
+    //   Route::get('/news/list','Admin\NewsListController@index')->name('admin.news_list');
+
+    //   Route::get('/news/register','Admin\NewsRegisterController@index')->name('admin.news_register');
+
+    //   Route::get('/news/edit/{news_id}','Admin\NewsEditController@index')->name('admin.news_edit');
+
+    //   Route::get('/admin','Admin\AdminEditController@index')->name('admin.admin_edit');
+
+    // });
+// });
