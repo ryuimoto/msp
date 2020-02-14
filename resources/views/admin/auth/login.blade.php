@@ -55,7 +55,7 @@
                           <i class="material-icons">face</i>
                         </span>
                       </div>
-                      <input type="text" class="form-control" placeholder="First Name...">
+                      <input type="text" class="form-control" placeholder="Name...">
                     </div>
                   </span>
                   <span class="bmd-form-group">

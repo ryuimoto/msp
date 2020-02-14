@@ -64,7 +64,7 @@ Route::prefix('admin432aKOIqr')->group(function () {
     // Route::get('/password/reset/{token}','Admin\Auth\LoginController@passwordResetToken')->name('admin.password_reset_token');
 
     // Route::middleware('auth:admin')->group(function () {
-    //   Route::get('/','Admin\Auth\TopController@index')->name('admin.top');
+      Route::get('/','Admin\TopController@index')->name('admin.top');
 
     //   Route::get('/users','Admin\UsersListController@index')->name('admin.users_list');
 
