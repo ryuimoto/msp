@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember">パスワードを保持
+                                        <input type="checkbox" name="remember">Remember Me
                                     </label>
                                     <label>
                                         <a href="#">パスワードを忘れた場合</a>
