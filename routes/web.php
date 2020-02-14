@@ -50,7 +50,7 @@ Route::get('/login','User\Auth\LoginController@showLoginForm')->name('user.login
 
     Route::get('/sales/{date}','User\SalesMonthlyAggregationController@index')->name('user.sales_monthly_aggregation');
 
-    // Route::get('/acount','User\AcountEditController@index')->name('user.acount_edit');
+    Route::get('/acount','User\AcountEditController@index')->name('user.acount_edit');
     
 
 // });

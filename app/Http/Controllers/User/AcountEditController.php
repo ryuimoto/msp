@@ -7,5 +7,8 @@ use App\Http\Controllers\Controller;
 
 class AcountEditController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('user.acount_edit');
+    }
 }

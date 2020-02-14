@@ -209,12 +209,12 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="{{ route('user.acount_edit') }}">
                                                         <i class="zmdi zmdi-settings"></i>アカウント編集</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="">
                                                     <i class="zmdi zmdi-power"></i>ログアウト</a>
                                             </div>
                                         </div>
