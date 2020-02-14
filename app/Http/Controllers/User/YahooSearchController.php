@@ -7,5 +7,8 @@ use App\Http\Controllers\Controller;
 
 class YahooSearchController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('user.yahoo_search');
+    }
 }

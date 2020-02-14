@@ -7,5 +7,8 @@ use App\Http\Controllers\Controller;
 
 class ItemListController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('user.item_list');
+    }
 }

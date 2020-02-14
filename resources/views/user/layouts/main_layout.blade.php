@@ -132,37 +132,37 @@
                                     <a href="{{ route('user.a8') }}">A8</a>
                                 </li>
                                 <li id="rakuten">
-                                    <a href="register.html">楽天</a>
+                                    <a href="{{ route('user.rakuten') }}">楽天</a>
                                 </li>
                                 <li id="amazon">
-                                    <a href="forget-pass.html">Amazon</a>
+                                    <a href="{{ route('user.amazon') }}">Amazon</a>
                                 </li>
-                                <li id="yahuoku">
-                                    <a href="forget-pass.html">ヤフオク</a>
+                                <li id="yahoo">
+                                    <a href="{{ route('user.yahoo') }}">ヤフオク</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="has-sub">
+                        <li class="has-sub" id="item">
                             <a class="js-arrow" href="#">
                                 <i class="fas  fa-heart"></i>アイテム</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">一覧</a>
+                                <li id="list">
+                                    <a href="{{ route('user.item_list') }}">一覧</a>
                                 </li>
-                                <li>
-                                    <a href="register.html">追加</a>
+                                <li id="register">
+                                    <a href="{{ route('user.item_register') }}">追加</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="has-sub">
+                        <li class="has-sub" id="sales">
                             <a class="js-arrow" href="#">
                                 <i class="fas  fa-book"></i>セールス</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">集計</a>
+                                <li id="aggregate">
+                                    <a href="{{ route('user.sales_aggregate') }}">集計</a>
                                 </li>
-                                <li>
-                                    <a href="register.html">月別集計</a>
+                                <li id="monthly_aggregation">
+                                    <a href="{{ route('user.sales_monthly_aggregation',['date' => 1]) }}">月別集計</a>
                                 </li>
                             </ul>
                         </li>

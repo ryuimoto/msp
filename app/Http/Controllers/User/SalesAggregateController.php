@@ -7,5 +7,8 @@ use App\Http\Controllers\Controller;
 
 class SalesAggregateController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('user.sales_aggregate');
+    }
 }

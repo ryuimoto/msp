@@ -7,5 +7,8 @@ use App\Http\Controllers\Controller;
 
 class RakutenSearchController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('user.rakuten_search');
+    }
 }
