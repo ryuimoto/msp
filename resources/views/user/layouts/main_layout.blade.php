@@ -58,23 +58,23 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li>
-                            <a href="chart.html">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <a href="{{ route('user.top') }}">
+                                <i class="fas fa-tachometer-alt" ></i>Dashboard</a>
                         </li>
-                        <li class="has-sub">
+                        <li id="search" class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>検索</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">A8</a>
+                                <li id="a8">
+                                    <a href="{{ route('user.a8') }}">A8</a>
                                 </li>
-                                <li>
+                                <li id="rakuten">
                                     <a href="register.html">楽天</a>
                                 </li>
-                                <li>
+                                <li id="amazon">
                                     <a href="forget-pass.html">Amazon</a>
                                 </li>
-                                <li>
+                                <li id="yahuoku">
                                     <a href="forget-pass.html">ヤフオク</a>
                                 </li>
                             </ul>
@@ -120,38 +120,24 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                        <li id="dashboard">
+                            <a href="{{ route('user.top') }}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
                         </li>
-                        <li class="has-sub">
+                        <li class="has-sub" id="search">
                             <a class="js-arrow" href="#">
                                 <i class="fas  fa-search"></i>検索</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">A8</a>
+                                <li id="a8">
+                                    <a href="{{ route('user.a8') }}">A8</a>
                                 </li>
-                                <li>
+                                <li id="rakuten">
                                     <a href="register.html">楽天</a>
                                 </li>
-                                <li>
+                                <li id="amazon">
                                     <a href="forget-pass.html">Amazon</a>
                                 </li>
-                                <li>
+                                <li id="yahuoku">
                                     <a href="forget-pass.html">ヤフオク</a>
                                 </li>
                             </ul>

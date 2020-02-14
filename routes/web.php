@@ -32,7 +32,7 @@ Route::get('/login','User\Auth\LoginController@showLoginForm')->name('user.login
 // Route::middleware('auth:user')->group(function () { 
     Route::get('/','User\TopController@index')->name('user.top');
 
-    // Route::get('/search/a8','User\A8SearchController@index')->name('user.a8');
+    Route::get('/search/a8','User\A8SearchController@index')->name('user.a8');
 
     // Route::get('/search/rakuten','User\RakutenSearchController@index')->name('user.rakuten');
 

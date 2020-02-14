@@ -566,4 +566,9 @@
 
     <!-- Main JS-->
     <script src="{{ asset('library/CoolAdmin-master/js/main.js') }}"></script>
+    <script>
+        $(function(){
+            $("#dashboard").addClass('active');
+        });
+    </script>
 @endsection
