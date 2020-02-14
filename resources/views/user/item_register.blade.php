@@ -1,6 +1,6 @@
 @extends('user.layouts.main_layout')
 @section('title')
-    MSP|アイテム登録ページ
+    MSP|アイテム追加
 @endsection
 @section('contents')
 <div class="section__content section__content--p30">

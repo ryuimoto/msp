@@ -1,6 +1,6 @@
 @extends('user.layouts.main_layout')
 @section('title')
-    MSP|アカウント編集ページ
+    MSP|アカウント編集
 @endsection
 @section('contents')
 <div class="section__content section__content--p30">

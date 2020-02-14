@@ -1,6 +1,6 @@
 @extends('user.layouts.main_layout')
 @section('title')
-    MSP|ヤフオク検索ページ
+    MSP|ヤフオク検索
 @endsection
 @section('contents')
 <div class="section__content section__content--p30">

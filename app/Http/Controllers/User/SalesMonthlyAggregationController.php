@@ -9,6 +9,6 @@ class SalesMonthlyAggregationController extends Controller
 {
     public function index()
     {
-        return view('user.salse_monthly');
+        return view('user.salse_monthly_aggregation');
     }
 }

@@ -1,6 +1,6 @@
 @extends('user.layouts.main_layout')
 @section('title')
-    MSP|Amazon検索ページ
+    MSP|Amazon検索
 @endsection
 @section('contents')
 <div class="section__content section__content--p30">

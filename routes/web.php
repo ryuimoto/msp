@@ -56,7 +56,7 @@ Route::get('/login','User\Auth\LoginController@showLoginForm')->name('user.login
 // });
 
 // 管理側
-// Route::prefix('admin432aKOiq')->group(function () {
+Route::prefix('admin432aKOIqr')->group(function () {
     // Route::get('login','Admin\Auth\LoginController@showLoginForm')->name('admin.login');
 
     // Route::get('/password/reset','Admin\Auth\LoginController@passwordReset')->name('admin.password_reset');
@@ -85,4 +85,4 @@ Route::get('/login','User\Auth\LoginController@showLoginForm')->name('user.login
     //   Route::get('/admin','Admin\AdminEditController@index')->name('admin.admin_edit');
 
     // });
-// });
+});
