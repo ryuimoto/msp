@@ -58,12 +58,14 @@ Route::middleware('auth:user')->group(function () {
 // 管理側
 Route::prefix('admin432aKOIqr')->group(function () {
     Route::get('/login','Admin\Auth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('/login','Admin\Auth\LoginController@login');
+
 
     // Route::get('/password/reset','Admin\Auth\LoginController@passwordReset')->name('admin.password_reset');
 
     // Route::get('/password/reset/{token}','Admin\Auth\LoginController@passwordResetToken')->name('admin.password_reset_token');
 
-    // Route::middleware('auth:admin')->group(function () {
+    Route::middleware('auth:admin')->group(function () {
       Route::get('/','Admin\TopController@index')->name('admin.top');
 
     //   Route::get('/users','Admin\UsersListController@index')->name('admin.users_list');
@@ -84,5 +86,5 @@ Route::prefix('admin432aKOIqr')->group(function () {
 
     //   Route::get('/admin','Admin\AdminEditController@index')->name('admin.admin_edit');
 
-    // });
+    });
 });

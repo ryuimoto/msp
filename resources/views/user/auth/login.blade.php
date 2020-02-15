@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="login-checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember">Remember Me
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>Remember Me
                                     </label>
                                     <label>
                                         <a href="#">パスワードを忘れた場合</a>

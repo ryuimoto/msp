@@ -42,7 +42,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-            <form class="form" method="" action="">
+            <form class="form" method="POST" name="form1" action="{{ route('admin.login') }}">
+              {{ csrf_field() }}
               <div class="card card-login card-hidden">
                 <div class="card-header card-header-rose text-center">
                   <h4 class="card-title">Login</h4>
@@ -55,25 +56,35 @@
                           <i class="material-icons">face</i>
                         </span>
                       </div>
-                      <input type="text" class="form-control" placeholder="Name...">
+                      <input type="text" class="form-control" name="name" placeholder="Name...">
                     </div>
                   </span>
                   <span class="bmd-form-group">
                     <div class="input-group">
+                      @if ($errors->has('name'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                      @endif
                       <div class="input-group-prepend">
                         <span class="input-group-text">
                           <i class="material-icons">lock_outline</i>
                         </span>
                       </div>
-                      <input type="password" class="form-control" placeholder="Password...">
+                      <input type="password" class="form-control" name="password" placeholder="Password...">
                     </div>
                   </span>
                   <br>
                   <span class="bmd-form-group">
+                    @if ($errors->has('password'))
+                      <span class="help-block">
+                          <strong>{{ $errors->first('password') }}</strong>
+                      </span>
+                    @endif
                     <div class="input-group">
                       <div class="form-check">
                         <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" value="" checked="">
+                          <input class="form-check-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                           <span class="form-check-sign">
                             <span class="check"></span>
                           </span>
@@ -86,14 +97,14 @@
                     <div class="input-group">
                       <div class="form-check">
                         <label>
-                          <a href="#">パスワードを忘れた場合</a>
+                          <a href="#">パスワードを忘れた方へ</a>
                         </label>
                       </div>
                     </div>
                   </span>
                 </div>
                 <div class="card-footer justify-content-center">
-                  <a href="#pablo" class="btn btn-rose btn-link btn-lg">サインイン</a>
+                  <a href="javascript:form1.submit()" class="btn btn-rose btn-link btn-lg">サインイン</a>
                 </div>
               </div>
             </form>
