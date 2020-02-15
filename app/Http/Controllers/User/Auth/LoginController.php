@@ -8,12 +8,11 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-
     use AuthenticatesUsers;
 
     protected function redirectTo()
     {
-        return route('user.dashboard');
+        return route('user.top');
     }
 
     public function __construct()

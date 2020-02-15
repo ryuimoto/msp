@@ -29,7 +29,7 @@ Route::post('/login','User\Auth\LoginController@login');
 
 // Route::get('logout','User\Auth\LoginController@logout')->name('user.logout');
 
-// Route::middleware('auth:user')->group(function () { 
+Route::middleware('auth:user')->group(function () { 
     Route::get('/','User\TopController@index')->name('user.top');
 
     Route::get('/search/a8','User\A8SearchController@index')->name('user.a8');
@@ -53,7 +53,7 @@ Route::post('/login','User\Auth\LoginController@login');
     Route::get('/acount','User\AcountEditController@index')->name('user.acount_edit');
     
 
-// });
+});
 
 // 管理側
 Route::prefix('admin432aKOIqr')->group(function () {

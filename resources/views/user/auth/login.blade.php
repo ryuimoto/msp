@@ -49,7 +49,7 @@
                         </div>
                         <div class="login-form">
                             <form action="{{ route('user.login') }}" method="post">
-                                @csrf
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                     <label>メールアドレス</label>
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
