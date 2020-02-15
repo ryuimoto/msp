@@ -25,7 +25,6 @@ Route::post('/login','User\Auth\LoginController@login');
 
 Route::get('logout','User\Auth\LoginController@logout')->name('user.logout');
 
-
 // Route::get('/password/reset','User\Auth\LoginController@passwordReset')->name('user.password_reset');
 
 // Route::get('/password/reset/{token}','User\Auth\LoginController@passwordResetToken')->name('user.password_reset_token');

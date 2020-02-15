@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class A8SearchController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:user');
+    }
+
     public function index()
     {
         return view('user.a8_search');
