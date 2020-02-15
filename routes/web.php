@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // ユーザー側
 Route::get('/login','User\Auth\LoginController@showLoginForm')->name('user.login');
-// Route::post('/login','User\Auth\LoginController@login');
+Route::post('/login','User\Auth\LoginController@login');
 
 // Route::get('/password/reset','User\Auth\LoginController@passwordReset')->name('user.password_reset');
 
