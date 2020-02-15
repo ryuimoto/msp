@@ -214,7 +214,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="">
+                                                <a href="{{ route('user.logout') }}">
                                                     <i class="zmdi zmdi-power"></i>ログアウト</a>
                                             </div>
                                         </div>

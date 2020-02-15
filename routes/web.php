@@ -23,11 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/login','User\Auth\LoginController@showLoginForm')->name('user.login');
 Route::post('/login','User\Auth\LoginController@login');
 
+Route::get('logout','User\Auth\LoginController@logout')->name('user.logout');
+
+
 // Route::get('/password/reset','User\Auth\LoginController@passwordReset')->name('user.password_reset');
 
 // Route::get('/password/reset/{token}','User\Auth\LoginController@passwordResetToken')->name('user.password_reset_token');
 
-// Route::get('logout','User\Auth\LoginController@logout')->name('user.logout');
 
 Route::middleware('auth:user')->group(function () { 
     Route::get('/','User\TopController@index')->name('user.top');
@@ -51,7 +53,6 @@ Route::middleware('auth:user')->group(function () {
     Route::get('/sales/{date}','User\SalesMonthlyAggregationController@index')->name('user.sales_monthly_aggregation');
 
     Route::get('/acount','User\AcountEditController@index')->name('user.acount_edit');
-    
 
 });
 
