@@ -205,7 +205,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <a class="dropdown-item" href="#">管理者情報編集</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">ログアウト</a>
+                  <a class="dropdown-item" href="{{ route('admin.logout') }}">ログアウト</a>
                 </div>
               </li>
             </ul>

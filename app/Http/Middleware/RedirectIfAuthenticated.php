@@ -17,10 +17,9 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        switch($guard)
-        {
+        switch ($guard) {
             case 'user':
-                if(Auth::guard($guard)->check()){
+                if (Auth::guard($guard)->check()) {
                     return redirect()->route('user.top');
                 }
             break;
@@ -31,7 +30,7 @@ class RedirectIfAuthenticated
                 }
             break;
         }
-
         return $next($request);
+
     }
 }

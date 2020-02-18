@@ -60,6 +60,9 @@ Route::prefix('admin432aKOIqr')->group(function () {
     Route::get('/login','Admin\Auth\LoginController@showLoginForm')->name('admin.login');
     Route::post('/login','Admin\Auth\LoginController@login');
 
+    Route::get('/logout','Admin\Auth\LoginController@logout')->name('admin.logout');
+
+
     // Route::get('/password/reset','Admin\Auth\LoginController@passwordReset')->name('admin.password_reset');
 
     // Route::get('/password/reset/{token}','Admin\Auth\LoginController@passwordResetToken')->name('admin.password_reset_token');
