@@ -33,9 +33,7 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('library/CoolAdmin-master/css/theme.css') }}" rel="stylesheet" media="all">
-
 </head>
-
 <body class="animsition">
     <div class="page-wrapper">
         <div class="page-content--bge5">
@@ -48,7 +46,7 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="{{ route('user.login') }}" method="post">
+                            <form action="{{ route('user.login') }}" method="POST">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     @if ($errors->has('email'))
@@ -83,9 +81,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     <!-- Jquery JS-->
     <script src="{{ asset('library/CoolAdmin-master/vendor/jquery-3.2.1.min.js') }}"></script>
     <!-- Bootstrap JS-->

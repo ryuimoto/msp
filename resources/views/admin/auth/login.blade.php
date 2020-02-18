@@ -24,7 +24,7 @@
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
     <div class="container">
       <div class="navbar-wrapper">
-        <a class="navbar-brand" href="#pablo">MSP|管理側 ログインページ</a>
+        <a class="navbar-brand" href="{{ route('admin.login') }}">MSP|管理側 ログインページ</a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
         <span class="sr-only">Toggle navigation</span>
@@ -47,6 +47,21 @@
               <div class="card card-login card-hidden">
                 <div class="card-header card-header-rose text-center">
                   <h4 class="card-title">Login</h4>
+                  {{-- @if ($errors->has('email'))
+                    <span class="help-block">
+                      <strong>{{ $errors->first('email') }}</strong><br>
+                    </span>
+                  @endif --}}
+                  @if ($errors->has('name'))
+                    <span class="help-block">
+                      <strong>{{ $errors->first('name') }}</strong><br>
+                    </span>
+                  @endif
+                  @if ($errors->has('password'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                  @endif
                 </div>
                 <div class="card-body ">
                   <span class="bmd-form-group">
@@ -56,16 +71,11 @@
                           <i class="material-icons">face</i>
                         </span>
                       </div>
-                      <input type="text" class="form-control" name="name" placeholder="Name...">
+                      <input type="text" id="name" class="form-control" name="name" placeholder="Name...">
                     </div>
                   </span>
                   <span class="bmd-form-group">
                     <div class="input-group">
-                      @if ($errors->has('name'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
-                        </span>
-                      @endif
                       <div class="input-group-prepend">
                         <span class="input-group-text">
                           <i class="material-icons">lock_outline</i>
@@ -76,11 +86,6 @@
                   </span>
                   <br>
                   <span class="bmd-form-group">
-                    @if ($errors->has('password'))
-                      <span class="help-block">
-                          <strong>{{ $errors->first('password') }}</strong>
-                      </span>
-                    @endif
                     <div class="input-group">
                       <div class="form-check">
                         <label class="form-check-label">
@@ -209,7 +214,6 @@
 
           $(this).parent('li').siblings().removeClass('active');
           $(this).parent('li').addClass('active');
-
 
           var new_image = $(this).find("img").attr('src');
 
