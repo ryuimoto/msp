@@ -1,0 +1,10 @@
+table{
+    table-layout: fixed;      
+}
+
+table td a{
+    text-decoration: none;
+    display: block;
+    width: 1000%;
+    height: 100%;
+}

@@ -30,6 +30,7 @@
     <!-- Main CSS-->
     <link href="{{ asset('library/CoolAdmin-master/css/theme.css') }}" rel="stylesheet" media="all">
     <link rel="stylesheet" href="{{ asset('css/user/top.css') }}">
+    @yield('css')
 </head>
 <body class="animsition">
     <div class="page-wrapper">
@@ -145,17 +146,9 @@
                             <a href="{{ route('user.sales_aggregate') }}">
                                 <i class="fas fa-book"></i>セールス集計</a>
                         </li>
-                        <li class="has-sub" id="points">
-                            <a class="js-arrow" href="#">
-                                <i class="fas  fa-rub"></i>ポイント</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li id="points_aggregate">
-                                    <a href="{{ route('user.sales_aggregate') }}">集計</a>
-                                </li>
-                                <li id="points_monthly_aggregation">
-                                    <a href="{{ route('user.sales_monthly_aggregation',['date' => 1]) }}">月別集計</a>
-                                </li>
-                            </ul>
+                        <li id="points">
+                            <a href="{{ route('user.points_aggregate') }}">
+                                <i class="fas fa-rub"></i>ポイント</a>
                         </li>
                     </ul>
                 </nav>

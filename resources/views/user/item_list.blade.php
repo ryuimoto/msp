@@ -2,95 +2,63 @@
 @section('title')
     MSP|アイテム一覧
 @endsection
+@section('css')
+    <link rel="stylesheet" href="{{ asset('css/user/item_list.css') }}">
+@endsection
 @section('contents')
 <div class="section__content section__content--p30">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="table-responsive table--no-card m-b-30">
-                    <table class="table table-borderless table-striped table-earning">
+            <div class="col-md-12">
+                <!-- DATA TABLE-->
+                <div class="table-responsive m-b-40">
+                    <table class="table table-borderless table-data3">
                         <thead>
                             <tr>
-                                <th>date</th>
-                                <th>order ID</th>
-                                <th>name</th>
-                                <th class="text-right">price</th>
-                                <th class="text-right">quantity</th>
-                                <th class="text-right">total</th>
+                                <th>商品名</th>
+                                <th>購入金額</th>
+                                <th>売却予定額</th>
+                                <th>ポイント</th>
+                                <th>売却ステータス</th>
+                                <th>メモ</th>
+                                <th class="text-right"></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>2018-09-29 05:57</td>
-                                <td>100398</td>
-                                <td>iPhone X 64Gb Grey</td>
-                                <td class="text-right">$999.00</td>
-                                <td class="text-right">1</td>
-                                <td class="text-right">$999.00</td>
-                            </tr>
-                            <tr>
-                                <td>2018-09-28 01:22</td>
-                                <td>100397</td>
-                                <td>Samsung S8 Black</td>
-                                <td class="text-right">$756.00</td>
-                                <td class="text-right">1</td>
-                                <td class="text-right">$756.00</td>
-                            </tr>
-                            <tr>
-                                <td>2018-09-27 02:12</td>
-                                <td>100396</td>
-                                <td>Game Console Controller</td>
-                                <td class="text-right">$22.00</td>
-                                <td class="text-right">2</td>
-                                <td class="text-right">$44.00</td>
-                            </tr>
-                            <tr>
-                                <td>2018-09-26 23:06</td>
-                                <td>100395</td>
-                                <td>iPhone X 256Gb Black</td>
-                                <td class="text-right">$1199.00</td>
-                                <td class="text-right">1</td>
-                                <td class="text-right">$1199.00</td>
-                            </tr>
-                            <tr>
-                                <td>2018-09-25 19:03</td>
-                                <td>100393</td>
-                                <td>USB 3.0 Cable</td>
-                                <td class="text-right">$10.00</td>
-                                <td class="text-right">3</td>
-                                <td class="text-right">$30.00</td>
-                            </tr>
-                            <tr>
-                                <td>2018-09-29 05:57</td>
-                                <td>100392</td>
-                                <td>Smartwatch 4.0 LTE Wifi</td>
-                                <td class="text-right">$199.00</td>
-                                <td class="text-right">6</td>
-                                <td class="text-right">$1494.00</td>
-                            </tr>
-                            <tr>
-                                <td>2018-09-24 19:10</td>
-                                <td>100391</td>
-                                <td>Camera C430W 4k</td>
-                                <td class="text-right">$699.00</td>
-                                <td class="text-right">1</td>
-                                <td class="text-right">$699.00</td>
-                            </tr>
-                            <tr>
-                                <td>2018-09-22 00:43</td>
-                                <td>100393</td>
-                                <td>USB 3.0 Cable</td>
-                                <td class="text-right">$10.00</td>
-                                <td class="text-right">3</td>
-                                <td class="text-right">$30.00</td>
+                                <td><a href="">2018-09-22 00:43</a></td>
+                                <td><a href="">Computer</a></td>
+                                <td><a href="">Macbook Pro Retina 2017</a></td>
+                                <td><a href="">Macbook Pro Retina 2017</a></td>
+                                <td><a href="">Macbook Pro Retina 2017</a></td>
+                                <td><a href="">Macbook Pro Retina 2017</a></td>
+                                <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#mediumModal">削除</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+                <!-- END DATA TABLE-->
             </div>
         </div>
     </div>
 </div> 
+<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">アイテムを削除しますか？</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                <button type="button" class="btn btn-danger">削除</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 @section('js')
      <!-- Jquery JS-->

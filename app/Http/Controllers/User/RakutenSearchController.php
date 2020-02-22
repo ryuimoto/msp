@@ -15,13 +15,13 @@ class RakutenSearchController extends Controller
 
     public function index()
     {
-        $client = new Client();
+        // $client = new Client();
 
-        $login_page = $client->request('GET', 'https://grp01.id.rakuten.co.jp/rms/nid/vc?__event=login&service_id=top');
+        // $login_page = $client->request('GET', 'https://grp01.id.rakuten.co.jp/rms/nid/vc?__event=login&service_id=top');
 
-        $login_form = $login_page->selectButton('submit')->form();
+        // $login_form = $login_page->selectButton('submit')->form();
 
-        dd($login_form);
+        // dd($login_form);
 
         return view('user.rakuten_search');
     }
