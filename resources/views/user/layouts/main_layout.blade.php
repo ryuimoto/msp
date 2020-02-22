@@ -11,16 +11,13 @@
 
     <!-- Title Page-->
     <title>@yield('title')</title>
-
     <!-- Fontfaces CSS-->
     <link href="{{ asset('library/CoolAdmin-master/css/font-face.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('library/CoolAdmin-master/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('library/CoolAdmin-master/vendor/font-awesome-5/css/fontawesome-all.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('library/CoolAdmin-master/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
-
     <!-- Bootstrap CSS-->
     <link href="{{ asset('library/CoolAdmin-master/vendor/bootstrap-4.1/bootstrap.min.css') }}" rel="stylesheet" media="all">
-
     <!-- Vendor CSS-->
     <link href="{{ asset('library/CoolAdmin-master/vendor/animsition/animsition.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('library/CoolAdmin-master/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet" media="all">
@@ -29,13 +26,10 @@
     <link href="{{ asset('library/CoolAdmin-master/vendor/slick/slick.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('library/CoolAdmin-master/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('library/CoolAdmin-master/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
-
     <!-- Main CSS-->
     <link href="{{ asset('library/CoolAdmin-master/css/theme.css') }}" rel="stylesheet" media="all">
     <link rel="stylesheet" href="{{ asset('css/user/top.css') }}">
-
 </head>
-
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
@@ -69,7 +63,7 @@
                                     <a href="{{ route('user.a8') }}">A8</a>
                                 </li>
                                 <li id="rakuten">
-                                    <a href="register.html">楽天</a>
+                                    <a href="{{ route('user.rakuten') }}">楽天</a>
                                 </li>
                             </ul>
                         </li>
@@ -78,10 +72,10 @@
                                 <i class="fas fa-heart"></i>アイテム</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="button.html">一覧</a>
+                                    <a href="{{ route('user.item_list') }}">一覧</a>
                                 </li>
                                 <li>
-                                    <a href="badge.html">追加</a>
+                                    <a href="{{ route('user.item_register') }}">追加</a>
                                 </li>
                             </ul>
                         </li>
@@ -90,10 +84,22 @@
                                 <i class="fas fa-book"></i>セールス</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="button.html">集計</a>
+                                    <a href="{{ route('user.sales_aggregate') }}">集計</a>
                                 </li>
                                 <li>
-                                    <a href="badge.html">月別集計</a>
+                                    <a href="{{ route('user.sales_monthly_aggregation',['date' => 1]) }}">月別集計</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-rub"></i>ポイント</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="{{ route('user.points_aggregate') }}">集計</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('user.points_monthly_aggregation',['date' => 1]) }}">月別集計</a>
                                 </li>
                             </ul>
                         </li>
@@ -150,6 +156,18 @@
                                     <a href="{{ route('user.sales_aggregate') }}">集計</a>
                                 </li>
                                 <li id="monthly_aggregation">
+                                    <a href="{{ route('user.sales_monthly_aggregation',['date' => 1]) }}">月別集計</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-sub" id="points">
+                            <a class="js-arrow" href="#">
+                                <i class="fas  fa-rub"></i>ポイント</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li id="points_aggregate">
+                                    <a href="{{ route('user.sales_aggregate') }}">集計</a>
+                                </li>
+                                <li id="points_monthly_aggregation">
                                     <a href="{{ route('user.sales_monthly_aggregation',['date' => 1]) }}">月別集計</a>
                                 </li>
                             </ul>
@@ -222,7 +240,35 @@
             <!-- END PAGE CONTAINER-->
         </div>
     </div>
-    @yield('js')
+      <!-- Jquery JS-->
+      <script src="{{ asset('library/CoolAdmin-master/vendor/jquery-3.2.1.min.js') }}"></script>
+      <!-- Bootstrap JS-->
+      <script src="{{ asset('library/CoolAdmin-master/vendor/bootstrap-4.1/popper.min.js') }}"></script>
+      <script src="{{ asset('library/CoolAdmin-master/vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
+      <!-- Vendor JS       -->
+      <script src="{{ asset('library/CoolAdmin-master/vendor/slick/slick.min.js') }}">
+      </script>
+      <script src="{{ asset('library/CoolAdmin-master/vendor/wow/wow.min.js') }}"></script>
+      <script src="{{ asset('library/CoolAdmin-master/vendor/animsition/animsition.min.js') }}"></script>
+      <script src="{{ asset('library/CoolAdmin-master/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }}">
+      </script>
+      <script src="{{ asset('library/CoolAdmin-master/vendor/counter-up/jquery.waypoints.min.js') }}"></script>
+      <script src="{{ asset('library/CoolAdmin-master/vendor/counter-up/jquery.counterup.min.js') }}">
+      </script>
+      <script src="{{ asset('library/CoolAdmin-master/vendor/circle-progress/circle-progress.min.js') }}"></script>
+      <script src="{{ asset('library/CoolAdmin-master/vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+      <script src="{{ asset('library/CoolAdmin-master/vendor/chartjs/Chart.bundle.min.js') }}"></script>
+      <script src="{{ asset('library/CoolAdmin-master/vendor/select2/select2.min.js') }}">
+      </script>
+  
+      <!-- Main JS-->
+      <script src="{{ asset('library/CoolAdmin-master/js/main.js') }}"></script>
+      <script>
+          $(function(){
+              $("#dashboard").addClass('active');
+          });
+      </script>
+    {{-- @yield('js') --}}
 </body>
 </html>
 <!-- end document-->
