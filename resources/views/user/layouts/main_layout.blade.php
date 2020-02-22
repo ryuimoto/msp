@@ -134,12 +134,6 @@
                                 <li id="rakuten">
                                     <a href="{{ route('user.rakuten') }}">楽天</a>
                                 </li>
-                                <li id="amazon">
-                                    <a href="{{ route('user.amazon') }}">Amazon</a>
-                                </li>
-                                <li id="yahoo">
-                                    <a href="{{ route('user.yahoo') }}">ヤフオク</a>
-                                </li>
                             </ul>
                         </li>
                         <li class="has-sub" id="item">

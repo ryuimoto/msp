@@ -37,10 +37,6 @@ Route::middleware('auth:user')->group(function () {
 
     Route::get('/search/rakuten','User\RakutenSearchController@index')->name('user.rakuten');
 
-    Route::get('/search/amazon','User\AmazonSearchController@index')->name('user.amazon');
-
-    Route::get('/search/yahoo','User\YahooSearchController@index')->name('user.yahoo');
-
     Route::get('/items','User\ItemListController@index')->name('user.item_list');
 
     Route::get('/items/register','User\ItemRegisterController@index')->name('user.item_register');
