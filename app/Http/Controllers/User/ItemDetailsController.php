@@ -9,6 +9,6 @@ class ItemDetailsController extends Controller
 {
     public function index()
     {
-        return 123456;
+        return view('user.item_details');
     }
 }

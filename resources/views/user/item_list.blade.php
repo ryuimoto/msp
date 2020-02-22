@@ -26,7 +26,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><a href="">2018-09-22 00:43</a></td>
+                                <td><a href="{{ route('user.item_details',['item_id' =>1]) }}">2018-09-22 00:43</a></td>
                                 <td><a href="">Computer</a></td>
                                 <td><a href="">Macbook Pro Retina 2017</a></td>
                                 <td><a href="">Macbook Pro Retina 2017</a></td>

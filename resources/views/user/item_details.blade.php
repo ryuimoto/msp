@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong>アイテムを追加</strong>
+                        <strong>アイテムの詳細</strong>
                     </div>
                     <div class="card-body card-block">
                         <div class="form-group">
@@ -83,7 +83,7 @@
      <script src="{{ asset('library/CoolAdmin-master/js/main.js') }}"></script>
      <script>
         $(function(){
-            $("#item,#register").addClass('active');
+            $("#item,#list").addClass('active');
         });
     </script>
 @endsection
