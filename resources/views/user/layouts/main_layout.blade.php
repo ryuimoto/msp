@@ -11,6 +11,7 @@
 
     <!-- Title Page-->
     <title>@yield('title')</title>
+
     <!-- Fontfaces CSS-->
     <link href="{{ asset('library/CoolAdmin-master/css/font-face.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('library/CoolAdmin-master/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
@@ -57,7 +58,7 @@
                         </li>
                         <li id="search" class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>検索</a>
+                                <i class="fas fa-copy"></i>アイテム検索</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li id="a8">
                                     <a href="{{ route('user.a8') }}">A8</a>
@@ -69,27 +70,19 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-heart"></i>アイテム</a>
+                                <i class="fas fa-heart"></i>アイテム管理</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="{{ route('user.item_list') }}">一覧</a>
+                                    <a href="{{ route('user.item_list') }}">アイテム一覧</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('user.item_register') }}">追加</a>
+                                    <a href="{{ route('user.item_register') }}">アイテム追加</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-book"></i>セールス</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="{{ route('user.sales_aggregate') }}">集計</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('user.sales_monthly_aggregation',['date' => 1]) }}">月別集計</a>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="{{ route('user.sales_aggregate') }}">
+                                <i class="fas fa-book" ></i>セールス集計</a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -126,7 +119,7 @@
                         </li>
                         <li class="has-sub" id="search">
                             <a class="js-arrow" href="#">
-                                <i class="fas  fa-search"></i>検索</a>
+                                <i class="fas  fa-search"></i>アイテム検索</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li id="a8">
                                     <a href="{{ route('user.a8') }}">A8</a>
@@ -138,27 +131,19 @@
                         </li>
                         <li class="has-sub" id="item">
                             <a class="js-arrow" href="#">
-                                <i class="fas  fa-heart"></i>アイテム</a>
+                                <i class="fas  fa-heart"></i>アイテム管理</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li id="list">
-                                    <a href="{{ route('user.item_list') }}">一覧</a>
+                                    <a href="{{ route('user.item_list') }}">アイテム一覧</a>
                                 </li>
                                 <li id="register">
-                                    <a href="{{ route('user.item_register') }}">追加</a>
+                                    <a href="{{ route('user.item_register') }}">アイテム追加</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="has-sub" id="sales">
-                            <a class="js-arrow" href="#">
-                                <i class="fas  fa-book"></i>セールス</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li id="aggregate">
-                                    <a href="{{ route('user.sales_aggregate') }}">集計</a>
-                                </li>
-                                <li id="monthly_aggregation">
-                                    <a href="{{ route('user.sales_monthly_aggregation',['date' => 1]) }}">月別集計</a>
-                                </li>
-                            </ul>
+                        <li id="sales">
+                            <a href="{{ route('user.sales_aggregate') }}">
+                                <i class="fas fa-book"></i>セールス集計</a>
                         </li>
                         <li class="has-sub" id="points">
                             <a class="js-arrow" href="#">
@@ -240,35 +225,7 @@
             <!-- END PAGE CONTAINER-->
         </div>
     </div>
-      <!-- Jquery JS-->
-      <script src="{{ asset('library/CoolAdmin-master/vendor/jquery-3.2.1.min.js') }}"></script>
-      <!-- Bootstrap JS-->
-      <script src="{{ asset('library/CoolAdmin-master/vendor/bootstrap-4.1/popper.min.js') }}"></script>
-      <script src="{{ asset('library/CoolAdmin-master/vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
-      <!-- Vendor JS       -->
-      <script src="{{ asset('library/CoolAdmin-master/vendor/slick/slick.min.js') }}">
-      </script>
-      <script src="{{ asset('library/CoolAdmin-master/vendor/wow/wow.min.js') }}"></script>
-      <script src="{{ asset('library/CoolAdmin-master/vendor/animsition/animsition.min.js') }}"></script>
-      <script src="{{ asset('library/CoolAdmin-master/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }}">
-      </script>
-      <script src="{{ asset('library/CoolAdmin-master/vendor/counter-up/jquery.waypoints.min.js') }}"></script>
-      <script src="{{ asset('library/CoolAdmin-master/vendor/counter-up/jquery.counterup.min.js') }}">
-      </script>
-      <script src="{{ asset('library/CoolAdmin-master/vendor/circle-progress/circle-progress.min.js') }}"></script>
-      <script src="{{ asset('library/CoolAdmin-master/vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-      <script src="{{ asset('library/CoolAdmin-master/vendor/chartjs/Chart.bundle.min.js') }}"></script>
-      <script src="{{ asset('library/CoolAdmin-master/vendor/select2/select2.min.js') }}">
-      </script>
-  
-      <!-- Main JS-->
-      <script src="{{ asset('library/CoolAdmin-master/js/main.js') }}"></script>
-      <script>
-          $(function(){
-              $("#dashboard").addClass('active');
-          });
-      </script>
-    {{-- @yield('js') --}}
+    @yield('js')
 </body>
 </html>
 <!-- end document-->
