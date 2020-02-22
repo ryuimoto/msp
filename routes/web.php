@@ -41,11 +41,16 @@ Route::middleware('auth:user')->group(function () {
 
     Route::get('/items/register','User\ItemRegisterController@index')->name('user.item_register');
 
-    // Route::get('/items/{item_id}','User\ItemDetailsController@index')->name('user.item_details');
+    // Route::get('/item/{item_id}','User\ItemDetailsController@index')->name('user.item_details');
+
 
     Route::get('/sales','User\SalesAggregateController@index')->name('user.sales_aggregate');
 
     Route::get('/sales/{date}','User\SalesMonthlyAggregationController@index')->name('user.sales_monthly_aggregation');
+
+    Route::get('/points','User\PointsAggregateController@index')->name('user.points_aggregate');
+
+    Route::get('/points/{date}','User\PointsMonthlyAggregationController@index')->name('user.points_monthly_aggregation');
 
     Route::get('/acount','User\AcountEditController@index')->name('user.acount_edit');
 

@@ -71,12 +71,6 @@
                                 <li id="rakuten">
                                     <a href="register.html">楽天</a>
                                 </li>
-                                <li id="amazon">
-                                    <a href="forget-pass.html">Amazon</a>
-                                </li>
-                                <li id="yahuoku">
-                                    <a href="forget-pass.html">ヤフオク</a>
-                                </li>
                             </ul>
                         </li>
                         <li class="has-sub">
