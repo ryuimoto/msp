@@ -55,7 +55,7 @@
                     <ul class="navbar-mobile__list list-unstyled">
                         <li>
                             <a href="{{ route('user.top') }}">
-                                <i class="fas fa-tachometer-alt" ></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt" ></i>トップ</a>
                         </li>
                         <li id="search" class="has-sub">
                             <a class="js-arrow" href="#">

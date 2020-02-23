@@ -2,10 +2,18 @@
 @section('title')
   MSP管理側|トップ
 @endsection
+
+@section('item_name')
+  <a class="navbar-brand" href="#pablo">Top</a>
+@endsection
+
+@section('contents')
+    
+@endsection
 @section('js')
   <script>
     $(function(){
-      $("#dashboard").addClass('active');
+        $("#top").addClass('active');
     });
   </script>
 @endsection
