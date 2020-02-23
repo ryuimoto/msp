@@ -71,7 +71,7 @@ Route::prefix('admin432aKOIqr')->group(function () {
 
       Route::get('/users','Admin\UsersListController@index')->name('admin.users_list');
 
-    //   Route::get('/user/register','Admin\UserRegisterController@index')->name('admin.user_register');
+      Route::get('/user/register','Admin\UserRegisterController@index')->name('admin.users_register');
 
     //   Route::get('/user/{user_id}','Admin\UserRegisterEditController@index')->name('admin.user_register_edit');
 

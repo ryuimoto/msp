@@ -33,7 +33,6 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{ asset('library/material-dashboard-pro-html-v2.1.0/assets/demo/demo.css') }}" rel="stylesheet" />
 </head>
-
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="rose" data-background-color="black" data-image="{{ asset('library/material-dashboard-pro-html-v2.1.0/assets/img/sidebar-1.jpg') }}">
@@ -72,13 +71,13 @@
                     <span class="sidebar-normal"> ユーザー一覧 </span>
                   </a>
                 </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/pages/rtl.html">
+                <li class="nav-item" id="register">
+                  <a class="nav-link" href="{{ route('admin.users_register') }}">
                     <span class="sidebar-mini"> R </span>
                     <span class="sidebar-normal"> ユーザー登録 </span>
                   </a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item" id="edit">
                   <a class="nav-link" href="../../examples/pages/timeline.html">
                     <span class="sidebar-mini"> P </span>
                     <span class="sidebar-normal"> ユーザー編集 </span>
