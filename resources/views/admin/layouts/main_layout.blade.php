@@ -52,12 +52,12 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item" id="top">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('admin.top') }}">
               <i class="material-icons">dashboard</i>
               <p> トップ </p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item" id="user">
             <a class="nav-link" data-toggle="collapse" href="#pagesExamples">
               <i class="material-icons">assignment_ind</i>
               <p> ユーザー
@@ -66,8 +66,8 @@
             </a>
             <div class="collapse" id="pagesExamples">
               <ul class="nav">
-                <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/pages/pricing.html">
+                <li class="nav-item " id="list">
+                  <a class="nav-link" href="{{ route('admin.users_list') }}">
                     <span class="sidebar-mini"> L </span>
                     <span class="sidebar-normal"> ユーザー一覧 </span>
                   </a>
@@ -178,7 +178,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <a class="dropdown-item" href="#">管理者情報</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">ログアウト</a>
+                  <a class="dropdown-item" href="{{ route('admin.logout') }}">ログアウト</a>
                 </div>
               </li>
             </ul>
