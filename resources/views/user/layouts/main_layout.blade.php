@@ -87,7 +87,7 @@
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-rub"></i>ポイント</a>
+                                <i class="fas fa-rub"></i>ポイント管理</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="{{ route('user.points_aggregate') }}">集計</a>
@@ -148,7 +148,7 @@
                         </li>
                         <li id="points">
                             <a href="{{ route('user.points_aggregate') }}">
-                                <i class="fas fa-rub"></i>ポイント</a>
+                                <i class="fas fa-rub"></i>ポイント管理</a>
                         </li>
                     </ul>
                 </nav>
