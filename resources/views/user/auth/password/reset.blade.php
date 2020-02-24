@@ -46,17 +46,8 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="{{ route('user.login') }}" method="POST">
+                            <form action="{{ route('user.password_reset',[$token]) }}" method="POST">
                                 {{ csrf_field() }}
-                                <div class="form-group">
-                                    @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
-                                    <label>メールアドレス</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
-                                </div>
                                 <div class="form-group">
                                     @if ($errors->has('password'))
                                     <span class="help-block">

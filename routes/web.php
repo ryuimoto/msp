@@ -25,10 +25,10 @@ Route::post('/login','User\Auth\LoginController@login');
 
 Route::get('logout','User\Auth\LoginController@logout')->name('user.logout');
 
-// Route::get('/password/reset','User\Auth\LoginController@passwordReset')->name('user.password_reset');
+Route::get('/password/reset','User\Auth\ForgotPasswordController@showLinkRequestForm')->name('user.password_reset');
+Route::post('/password/reset','User\Auth\ForgotPasswordController@sendResetLinkEmail');
 
-// Route::get('/password/reset/{token}','User\Auth\LoginController@passwordResetToken')->name('user.password_reset_token');
-
+Route::get('/password/reset/{token}','User\Auth\ResetPasswordController@passwordResetToken')->name('user.password_reset_token');
 
 Route::middleware('auth:user')->group(function () { 
     Route::get('/','User\TopController@index')->name('user.top');
@@ -52,7 +52,6 @@ Route::middleware('auth:user')->group(function () {
     Route::get('/points/{date}','User\PointsMonthlyAggregationController@index')->name('user.points_monthly_aggregation');
 
     Route::get('/acount','User\AcountEditController@index')->name('user.acount_edit');
-
 });
 
 // 管理側

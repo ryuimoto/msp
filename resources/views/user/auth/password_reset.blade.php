@@ -11,11 +11,11 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Login</title>
+    <title>Forget Password</title>
 
     <!-- Fontfaces CSS-->
-    <link href="{{ asset('library/CoolAdmin-master/css/font-face.css" rel="stylesheet"') }}  media="all">
-    <link href="{{ asset('library/CoolAdmin-master/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('library/CoolAdmin-master/css/font-face.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('library/CoolAdmin-master/vendor/font-awesome-4.7/css/font-awesome.min.css') }} " rel="stylesheet" media="all">
     <link href="{{ asset('library/CoolAdmin-master/vendor/font-awesome-5/css/fontawesome-all.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('library/CoolAdmin-master/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
 
@@ -33,6 +33,7 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('library/CoolAdmin-master/css/theme.css') }}" rel="stylesheet" media="all">
+
 </head>
 <body class="animsition">
     <div class="page-wrapper">
@@ -46,42 +47,28 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="{{ route('user.login') }}" method="POST">
+                            @yield('content')
+                            <form method="post" action="{{ route('user.password_reset') }}">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
                                     @endif
                                     <label>メールアドレス</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
                                 </div>
-                                <div class="form-group">
-                                    @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                    @endif
-                                    <label>パスワード</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
-                                </div>
-                                <div class="login-checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>Remember Me
-                                    </label>
-                                    <label>
-                                        <a href="{{ route('user.password_reset') }}">パスワードを忘れた場合</a>
-                                    </label>
-                                </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">サインイン</button>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">送信</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
+
     <!-- Jquery JS-->
     <script src="{{ asset('library/CoolAdmin-master/vendor/jquery-3.2.1.min.js') }}"></script>
     <!-- Bootstrap JS-->
