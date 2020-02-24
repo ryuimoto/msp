@@ -19,8 +19,10 @@ class ItemListController extends Controller
     {
         $user = Auth::user();
 
-        // $items = Item::where('user_id')->get();
+        $items = Item::where('user_id',$user->id)->get();
 
-        return view('user.item_list');
+        return view('user.item_list')->with([
+            'items' => $items,
+        ]);
     }
 }

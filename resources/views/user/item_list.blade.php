@@ -21,19 +21,20 @@
                                 <th>ポイント</th>
                                 <th>売却ステータス</th>
                                 <th>メモ</th>
-                                <th class="text-right"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><a href="{{ route('user.item_details',['item_id' => 1]) }}">2018-09-29 05:57</a></td>
-                                <td>Mobile</td>
-                                <td>iPhone</td>
-                                <td>Processed</td>
-                                <td>$999.00</td>
-                                <td>$999.00</td>
-                                <td><button type="button" class="btn btn-danger">削除</button></td>
-                            </tr>
+                            @forelse ($items as $item)
+                                <tr>
+                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->product_name }}</a></td>
+                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->purchase_price }}</a></td>
+                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->expected_sale_price }}</a></td>
+                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->point }}</a></td>
+                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->sale_status }}</a></td>
+                                    <td>{{ $item->memo }}</td>
+                                </tr>
+                            @empty
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
