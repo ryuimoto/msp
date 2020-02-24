@@ -77,13 +77,11 @@ Route::prefix('admin432aKOIqr')->group(function () {
 
       Route::get('/sales/total','Admin\SalesTotalController@index')->name('admin.sales_total');
 
-      Route::get('/sales/total/{user_id}','Admin\IndividualTotalController@index')->name('admin.individual_total');
+      Route::get('/sales/user/{user_id}','Admin\IndividualTotalController@index')->name('admin.individual_total');
 
-    //   Route::get('/news/list','Admin\NewsListController@index')->name('admin.news_list');
+      Route::get('/points/total','Admin\PointsTotalController@index')->name('admin.points_total');
 
-    //   Route::get('/news/register','Admin\NewsRegisterController@index')->name('admin.news_register');
-
-    //   Route::get('/news/edit/{news_id}','Admin\NewsEditController@index')->name('admin.news_edit');
+      Route::get('/points/user/{user_id}','Admin\PointsIndividualTotalController@index')->name('admin.points_individual_total');
 
     //   Route::get('/admin','Admin\AdminEditController@index')->name('admin.admin_edit');
 

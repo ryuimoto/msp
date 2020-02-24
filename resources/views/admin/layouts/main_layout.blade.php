@@ -98,7 +98,7 @@
               </ul>
             </div>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item" id="points">
             <a class="nav-link" data-toggle="collapse" href="#tablesExamples">
               <i class="material-icons">attach_money</i>
               <p> ポイント
@@ -107,8 +107,8 @@
             </a>
             <div class="collapse" id="tablesExamples">
               <ul class="nav">
-                <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/tables/regular.html">
+                <li class="nav-item" id="points_total">
+                  <a class="nav-link" href="{{ route('admin.points_total') }}">
                     <span class="sidebar-mini"> RT </span>
                     <span class="sidebar-normal"> 全ユーザーポイント集計 </span>
                   </a>
