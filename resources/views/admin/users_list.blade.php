@@ -47,7 +47,7 @@
                       1
                     </td>
                     <td>
-                      Dakota Rice
+                      <a href="{{ route('admin.users_register_edit',['user_id' => 1]) }}">Dakota Rice</a>
                     </td>
                     <td>
                       Niger

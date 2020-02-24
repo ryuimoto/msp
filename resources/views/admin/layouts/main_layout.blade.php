@@ -77,16 +77,10 @@
                     <span class="sidebar-normal"> ユーザー登録 </span>
                   </a>
                 </li>
-                <li class="nav-item" id="edit">
-                  <a class="nav-link" href="../../examples/pages/timeline.html">
-                    <span class="sidebar-mini"> P </span>
-                    <span class="sidebar-normal"> ユーザー編集 </span>
-                  </a>
-                </li>
               </ul>
             </div>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item" id="sales">
             <a class="nav-link" data-toggle="collapse" href="#formsExamples">
               <i class="material-icons">supervised_user_circle</i>
               <p> セールス
@@ -95,16 +89,10 @@
             </a>
             <div class="collapse" id="formsExamples">
               <ul class="nav">
-                <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/forms/regular.html">
+                <li class="nav-item" id="sales_total">
+                  <a class="nav-link" href="{{ route('admin.sales_total') }}">
                     <span class="sidebar-mini"> RF </span>
                     <span class="sidebar-normal"> 全ユーザーセールス集計</span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/forms/extended.html">
-                    <span class="sidebar-mini"> EF </span>
-                    <span class="sidebar-normal"> ユーザー個別集計 </span>
                   </a>
                 </li>
               </ul>
@@ -123,12 +111,6 @@
                   <a class="nav-link" href="../../examples/tables/regular.html">
                     <span class="sidebar-mini"> RT </span>
                     <span class="sidebar-normal"> 全ユーザーポイント集計 </span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="../../examples/tables/extended.html">
-                    <span class="sidebar-mini"> ET </span>
-                    <span class="sidebar-normal"> ユーザー個別集計 </span>
                   </a>
                 </li>
               </ul>

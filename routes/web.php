@@ -73,9 +73,9 @@ Route::prefix('admin432aKOIqr')->group(function () {
 
       Route::get('/user/register','Admin\UserRegisterController@index')->name('admin.users_register');
 
-    //   Route::get('/user/{user_id}','Admin\UserRegisterEditController@index')->name('admin.user_register_edit');
+      Route::get('/user/{user_id}','Admin\UserRegisterEditController@index')->name('admin.users_register_edit');
 
-    //   Route::get('/sales/total','Admin\SalesTotalController@index')->name('admin.sales_total');
+      Route::get('/sales/total','Admin\SalesTotalController@index')->name('admin.sales_total');
 
     //   Route::get('/sales/total/{user_id}','Admin\IndividualTotalController@index')->name('admin.individual_total');
 
