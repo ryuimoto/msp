@@ -13,28 +13,29 @@
                     </div>
                     <div class="card-body card-block">
                         <div class="form-group">
-                            <label for="company" class=" form-control-label">商品名</label>
-                            <input type="text" id="company" placeholder="例:　洋服" class="form-control">
+                            <label class=" form-control-label">商品名</label>
+                            <input type="text" id="product_name" name="product_name" value="{{ $item->product_name }}" placeholder="例:　洋服" value="" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="vat" class=" form-control-label">購入金額</label>
-                            <input type="text" id="vat" placeholder="例:　2,000円" class="form-control">
+                            <label class=" form-control-label">購入金額</label>
+                            <input type="text" id="purchase_price" name="purchase_price" value="{{ $item->purchase_price }}" placeholder="例:　2,000円" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="street" class=" form-control-label">売却予定額</label>
-                            <input type="text" id="street" placeholder="例:　1,500円" class="form-control">
+                            <label class=" form-control-label">売却予定額</label>
+                            <input type="text" id="expected_sale_price" name="expected_sale_price" value="{{  $item->expected_sale_price }}" placeholder="例:　1,500円" class="form-control">
                         </div>
                         <div class="row form-group">
                             <div class="col-8">
                                 <div class="form-group">
-                                    <label for="city" class=" form-control-label">ポイント</label>
-                                    <input type="number" min="0" class="form-control">
+                                    <label class=" form-control-label">ポイント</label>
+                                    <input type="number" name="point" value="{{ $item->point }}" min="0" class="form-control">
                                 </div>
                             </div>
                             <div class="col-8">
                                 <div class="form-group">
                                     <label for="postal-code" class=" form-control-label">売却ステータス</label>
-                                    <select name="select" id="select" class="form-control">
+                                    <select name="sale_status" value="{{ $item->sale_status }}" class="form-control">
+                                        <option value="{{ $item->sale_status }}">{{ $item->sale_status }}</option>
                                         <option value="0">売却前</option>
                                         <option value="1">売却済み</option>
                                     </select>
@@ -43,11 +44,12 @@
                         </div>
                         <div class="form-group">
                             <label for="country" class=" form-control-label">メモ</label>
-                            <textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea>
+                            <textarea name="memo" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ $item->memo }}</textarea>
                         </div>
                         <div class="row form-group">
-                            <div class="col-1 offset-md-11">
-                                <button type="button" class="btn btn-success">追加</button>
+                            <div class="col-md-2 offset-md-10">
+                                <button type="button" name="edit" value="{{ $item->id }}" class="btn btn-success">追加</button>
+                                <button type="button" name="delete" value="{{ $item->id }}" class="btn btn-danger">削除</button>
                             </div>
                         </div>
                     </div>

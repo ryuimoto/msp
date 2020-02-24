@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('product_name');
             $table->integer('expected_sale_price');
             $table->integer('point');
-            $table->boolean('sale_status');
+            $table->integer('sale_status');
             $table->text('memo')->nullable();
             $table->timestamps();
         });

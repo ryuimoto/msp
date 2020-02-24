@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 use App\Item;
+use App\SaleStatus;
 
 class ItemListController extends Controller
 {
@@ -21,8 +22,11 @@ class ItemListController extends Controller
 
         $items = Item::where('user_id',$user->id)->get();
 
+        $sale_statuses = SaleStatus::get();
+
         return view('user.item_list')->with([
             'items' => $items,
+            'sale_statuses' => $sale_statuses,
         ]);
     }
 }

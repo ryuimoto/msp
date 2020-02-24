@@ -18,8 +18,17 @@ class ItemsTableSeeder extends Seeder
                'user_id' => 1,
                'expected_sale_price' => 100000,
                'point' => 30,
-               'sale_status' => false,
+               'sale_status' => 1,
                'memo' => null,
+            ],
+            [
+                'product_name' => 'イチゴ',
+                'user_id' => 1,
+                'purchase_price' => 1000,
+                'expected_sale_price' => 100000,
+                'point' => 30,
+                'sale_status' => 1,
+                'memo' => "ぶfrgじぇろgんれおげろgねrg",
             ],
             [
                 'product_name' => 'バナナ',
@@ -27,25 +36,17 @@ class ItemsTableSeeder extends Seeder
                 'purchase_price' => 1000,
                 'expected_sale_price' => 100000,
                 'point' => 30,
-                'sale_status' => true,
-                'memo' => "ぶfrgじぇろgんれおげろgねrg",
+                'sale_status' => 2,
+                'memo' => null,
              ],
-            [
-                'product_name' => 'イチゴ',
-                'user_id' => 1,
-                'purchase_price' => 1000,
-                'expected_sale_price' => 100000,
-                'point' => 30,
-                'sale_status' => true,
-                'memo' => "ぶfrgじぇろgんれおげろgねrg",
-            ],
+           
             [
                 'product_name' => 'ライチ',
                 'user_id' => 1,
                 'purchase_price' => 1000,
                 'expected_sale_price' => 100000,
                 'point' => 30,
-                'sale_status' => false,
+                'sale_status' => 1,
                 'memo' => "ぶfrgじぇろgんれおげろgねrg",
             ],
             [
@@ -54,11 +55,18 @@ class ItemsTableSeeder extends Seeder
                 'purchase_price' => 1000,
                 'expected_sale_price' => 100000,
                 'point' => 30,
-                'sale_status' => true,
+                'sale_status' => 2,
                 'memo' => "ぶfrgじぇろgんれおげろgねrg",
             ],
-           
-          
+            [
+                'product_name' => 'ぐへへh',
+                'purchase_price' => 1000,
+                'user_id' => 1,
+                'expected_sale_price' => 100000,
+                'point' => 30,
+                'sale_status' => 1,
+                'memo' => null,
+             ],
         ]);
     }
 }

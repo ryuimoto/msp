@@ -27,10 +27,10 @@
                             @forelse ($items as $item)
                                 <tr>
                                     <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->product_name }}</a></td>
-                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->purchase_price }}</a></td>
-                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->expected_sale_price }}</a></td>
+                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ number_format($item->purchase_price) }}円</a></td>
+                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ number_format($item->expected_sale_price) }}円</a></td>
                                     <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->point }}</a></td>
-                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->sale_status }}</a></td>
+                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->saleStatus['name'] }}</a></td>
                                     <td>{{ $item->memo }}</td>
                                 </tr>
                             @empty
