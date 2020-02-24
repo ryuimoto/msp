@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Notice;
+
 class TopController extends Controller
 {
     public function __construct()
@@ -14,6 +16,10 @@ class TopController extends Controller
 
     public function index()
     {
-        return view('user.top');
+        $notices = Notice::where('release_flag',true)->paginate(5);
+
+        return view('user.top')->with([
+            'notices' => $notices,
+        ]);
     }
 }

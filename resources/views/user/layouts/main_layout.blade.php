@@ -171,24 +171,15 @@
                             <div class="header-button">
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                            <img src="{{ asset('library/CoolAdmin-master/images/icon/avatar-01.jpg') }}" alt="John Doe" />
-                                        </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#">{{ auth()->user()->email }}</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="{{ asset('library/CoolAdmin-master/images/icon/avatar-01.jpg') }}" alt="John Doe" />
-                                                    </a>
-                                                </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#">{{ auth()->user()->email }}</a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">

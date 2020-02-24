@@ -3,52 +3,45 @@
     MSP|トップページ
 @endsection
 @section('contents')
-    <div class="section__content section__content--p30">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="overview-wrap">
-                        <h2 class="title-1">運営からのお知らせ</h2>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                  <div class="card">
-                    <div class="card-header">
-                      <strong class="card-title">3/27(水)　ポイント利用について</strong>
-                    </div>
-  
-                    <div class="card-body">
-                      <div class="typo-articles">
-                      <p>
-                        当サイトは、PONEY（ポニー）というポイントサイトです。
-                        会員登録の時点で、商品や現金をプレゼントするといったキャンペーンは行っておりませんのでご注意ください。
-                        
-                        お客様が下記に該当する場合は、「お問い合わせフォーム」 までご連絡くださいませ。
-                        
-                        ■ 商品や現金が当選したとの連絡を受け、当サイトへ会員登録を行った。
-                        ■ 意図せず会員登録を行ってしまった。
-                        ■ 意図せず当サイトへ誘導されてしまった。
-                        
-                        お心当たりや不審な誘導を受けてしまった場合は、PONEYの「お問い合わせフォーム」 まで情報をお寄せください。
-                        会員登録の解除を、当サイトで対応いたします。
-                        また、お問い合わせの際に、当サイトへ意図しない会員登録にいたった原因の投稿内容やDMの
-                        キャプチャー画像や、文章の添付・コピーがありましたら、一緒にお寄せください。
-                        
-                        みなさまにはご不便、ご迷惑をおかけいたしますが、ご理解ご協力のほど何卒よろしくお願い申し上げます。
-                      </p>
-                      </div>
-                    </div>
-                  </div>
-  
-  
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="overview-wrap">
+                  <h2 class="title-1">運営からのお知らせ</h2>
+              </div>
+          </div>
+      </div>
+      <br>
+      @forelse ($notices as $notice)
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <strong class="card-title">{{ $notice->created_at }}　{{ $notice->title }}</strong>
+              </div>
+              <div class="card-body">
+                <div class="typo-articles">
+                  <p>
+                   {{ $notice->contents }}
+                  </p>
                 </div>
               </div>
-            <br>
+            </div>
+          </div>
         </div>
-    </div>    
+      @empty
+        <h4>運営からのお知らせはありません</h4>
+      @endforelse
+      <div class="row">
+        <div class="col-md-7 offset-md-5">
+          {{ $notices->links('vendor.pagination.default') }}
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+  
 @endsection
 @section('js')
     <!-- Jquery JS-->
