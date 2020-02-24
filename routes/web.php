@@ -39,9 +39,10 @@ Route::middleware('auth:user')->group(function () {
 
     Route::get('/items','User\ItemListController@index')->name('user.item_list');
 
-    Route::get('/items/register','User\ItemRegisterController@index')->name('user.item_register');
-
     Route::get('/item/{item_id}','User\ItemDetailsController@index')->name('user.item_details');
+    Route::put('/item/{item_id}','User\ItemDetailsController@edit');
+
+    Route::get('/items/register','User\ItemRegisterController@index')->name('user.item_register');
 
     Route::get('/sales','User\SalesAggregateController@index')->name('user.sales_aggregate');
 
