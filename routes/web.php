@@ -83,7 +83,7 @@ Route::prefix('admin432aKOIqr')->group(function () {
 
       Route::get('/points/user/{user_id}','Admin\PointsIndividualTotalController@index')->name('admin.points_individual_total');
 
-    //   Route::get('/admin','Admin\AdminEditController@index')->name('admin.admin_edit');
+      Route::get('/admin','Admin\AdminEditController@index')->name('admin.admin_edit');
 
     });
 });

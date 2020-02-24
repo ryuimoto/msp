@@ -157,7 +157,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">管理者情報</a>
+                  <a class="dropdown-item" href="{{ route('admin.admin_edit') }}">管理者情報</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{{ route('admin.logout') }}">ログアウト</a>
                 </div>
