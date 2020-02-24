@@ -41,6 +41,7 @@ Route::middleware('auth:user')->group(function () {
 
     Route::get('/item/{item_id}','User\ItemDetailsController@index')->name('user.item_details');
     Route::put('/item/{item_id}','User\ItemDetailsController@edit');
+    Route::delete('/item/{item_id}','User\ItemDetailsController@delete');
 
     Route::get('/items/register','User\ItemRegisterController@index')->name('user.item_register');
 

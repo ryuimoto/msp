@@ -20,6 +20,8 @@ class ItemsTableSeeder extends Seeder
                'point' => 30,
                'sale_status' => 1,
                'memo' => null,
+               'created_at' => date('Y-m-d H:i:s'),
+               'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'product_name' => 'イチゴ',
@@ -29,6 +31,8 @@ class ItemsTableSeeder extends Seeder
                 'point' => 30,
                 'sale_status' => 1,
                 'memo' => "ぶfrgじぇろgんれおげろgねrg",
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'product_name' => 'バナナ',
@@ -38,6 +42,8 @@ class ItemsTableSeeder extends Seeder
                 'point' => 30,
                 'sale_status' => 2,
                 'memo' => null,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
              ],
            
             [
@@ -48,6 +54,8 @@ class ItemsTableSeeder extends Seeder
                 'point' => 30,
                 'sale_status' => 1,
                 'memo' => "ぶfrgじぇろgんれおげろgねrg",
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'product_name' => 'あさがお',
@@ -57,6 +65,8 @@ class ItemsTableSeeder extends Seeder
                 'point' => 30,
                 'sale_status' => 2,
                 'memo' => "ぶfrgじぇろgんれおげろgねrg",
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
             ],
             [
                 'product_name' => 'ぐへへh',
@@ -66,6 +76,8 @@ class ItemsTableSeeder extends Seeder
                 'point' => 30,
                 'sale_status' => 1,
                 'memo' => null,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
              ],
         ]);
     }

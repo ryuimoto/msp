@@ -44,12 +44,14 @@ class ItemDetailsController extends Controller
             return back();
 
         }else{
-            return $this->delete($request);
+            return $this->delete($request,$item_id);
         }
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request,$item_id)
     {
-        return "削除メソッドです";
+        Item::where('id',$item_id)->delete();
+
+        return redirect()->route('user.item_list');
     }
 }

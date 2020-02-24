@@ -21,7 +21,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="" method="post">
+                        <form action="{{ route('user.item_details',$item->id) }}" id="form" method="post">
                             {{ csrf_field() }}
                             <input type="hidden" name="_method" value="PUT">
                             <div class="form-group">
@@ -82,7 +82,7 @@
                 </button>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger">削除</button>
+                <button type="button" id="delete" class="btn btn-danger">削除</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
             </div>
         </div>
@@ -116,6 +116,9 @@
      <script>
         $(function(){
             $("#item,#list").addClass('active');
+            $("#delete").click(function(){
+                $("#form").submit();
+            });
         });
     </script>
 @endsection
