@@ -11,54 +11,37 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- DATA TABLE-->
-                <div class="table-responsive m-b-40">
-                    <table class="table table-borderless table-data3">
-                        <thead>
+                <table class="table table-borderless table-data3">
+                    <thead>
+                        <tr>
+                            <th>商品名</th>
+                            <th>購入金額</th>
+                            <th>売却予定額</th>
+                            <th>ポイント</th>
+                            <th>売却ステータス</th>
+                            <th>メモ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($items as $item)
                             <tr>
-                                <th>商品名</th>
-                                <th>購入金額</th>
-                                <th>売却予定額</th>
-                                <th>ポイント</th>
-                                <th>売却ステータス</th>
-                                <th>メモ</th>
+                                <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->product_name }}</a></td>
+                                <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ number_format($item->purchase_price) }}円</a></td>
+                                <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ number_format($item->expected_sale_price) }}円</a></td>
+                                <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->point }}</a></td>
+                                <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->saleStatus['name'] }}</a></td>
+                                <td>{{ $item->memo }}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($items as $item)
-                                <tr>
-                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->product_name }}</a></td>
-                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ number_format($item->purchase_price) }}円</a></td>
-                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ number_format($item->expected_sale_price) }}円</a></td>
-                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->point }}</a></td>
-                                    <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->saleStatus['name'] }}</a></td>
-                                    <td>{{ $item->memo }}</td>
-                                </tr>
-                            @empty
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
+                        @empty
+                        @endforelse
+                    </tbody>
+                </table>
                 <!-- END DATA TABLE-->
             </div>
         </div>
     </div>
 </div> 
-<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="mediumModalLabel">アイテムを削除しますか？</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                <button type="button" class="btn btn-danger">削除</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 @endsection
 @section('js')
      <!-- Jquery JS-->

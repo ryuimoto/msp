@@ -119,6 +119,12 @@ return [
         'name' => '名前',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
+        'product_name' => '商品名',
+        'purchase_price' => '購入金額',
+        'expected_sale_price' => '売却予定額',
+        'point' => 'ポイント',
+        'sale_status' => '売却ステータス',
+        'memo' => 'メモ',
     ],
 
 ];

@@ -12,6 +12,15 @@
                         <strong>アイテムの詳細</strong>
                     </div>
                     <div class="card-body card-block">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                @foreach ($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form action="" method="post">
                             {{ csrf_field() }}
                             <input type="hidden" name="_method" value="PUT">
