@@ -77,7 +77,7 @@ Route::prefix('admin432aKOIqr')->group(function () {
 
       Route::get('/sales/total','Admin\SalesTotalController@index')->name('admin.sales_total');
 
-    //   Route::get('/sales/total/{user_id}','Admin\IndividualTotalController@index')->name('admin.individual_total');
+      Route::get('/sales/total/{user_id}','Admin\IndividualTotalController@index')->name('admin.individual_total');
 
     //   Route::get('/news/list','Admin\NewsListController@index')->name('admin.news_list');
 

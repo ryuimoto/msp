@@ -1,11 +1,14 @@
 @extends('admin.layouts.main_layout')
 @section('title')
-  MSP管理側|全ユーザーセールス集計
+  MSP管理側|ユーザー個別集計
 @endsection
 @section('item_name')
-  <a class="navbar-brand" href="#pablo">全ユーザーセールス集計</a>
+  <a class="navbar-brand" href="#pablo">ユーザー個別集計</a>
 @endsection
 @section('contents')
+  <div class="header text-center ml-auto mr-auto">
+    <h3 class="title">田中太郎さん</h3>
+  </div>
   <div class="row">
     <div class="col-md-8 ml-auto mr-auto">
       <div class="page-categories">
@@ -112,7 +115,7 @@
               </tfoot>
               <tbody>
               <tr role="row" class="odd">
-                  <td tabindex="0" class="sorting_1"><a href="{{ route('admin.individual_total',['user_id' => 1 ]) }}">Airi Satou</a></td>
+                  <td tabindex="0" class="sorting_1"><a href="">Airi Satou</a></td>
                   <td>Accountant</td>
                   <td>Tokyo</td>
                   <td>33</td>
