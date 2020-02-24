@@ -18,7 +18,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <strong class="card-title">{{ $notice->created_at }}　{{ $notice->title }}</strong>
+                <strong class="card-title">{{  date('Y年m月d日',strtotime($notice->created_at)) }}　{{ $notice->title }}</strong>
               </div>
               <div class="card-body">
                 <div class="typo-articles">
@@ -41,7 +41,6 @@
     </div>
     <br>
   </div>
-  
 @endsection
 @section('js')
     <!-- Jquery JS-->

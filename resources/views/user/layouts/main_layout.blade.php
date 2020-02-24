@@ -116,7 +116,7 @@
                     <ul class="list-unstyled navbar__list">
                         <li id="dashboard">
                             <a href="{{ route('user.top') }}">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>トップ</a>
                         </li>
                         <li class="has-sub" id="search">
                             <a class="js-arrow" href="#">
