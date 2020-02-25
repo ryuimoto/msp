@@ -41,8 +41,7 @@ class ItemDetailsController extends Controller
                 'memo' => $request->memo,
             ]);
 
-            return back();
-
+            return back()->with('success_message','アイテムを編集しました');
         }else{
             return $this->delete($request,$item_id);
         }

@@ -44,6 +44,7 @@ Route::middleware('auth:user')->group(function () {
     Route::delete('/item/{item_id}','User\ItemDetailsController@delete');
 
     Route::get('/items/register','User\ItemRegisterController@index')->name('user.item_register');
+    Route::post('/items/register','User\ItemRegisterController@register');
 
     Route::get('/sales','User\SalesAggregateController@index')->name('user.sales_aggregate');
 

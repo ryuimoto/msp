@@ -12,44 +12,63 @@
                         <strong>アイテムを追加</strong>
                     </div>
                     <div class="card-body card-block">
-                        <div class="form-group">
-                            <label for="company" class=" form-control-label">商品名</label>
-                            <input type="text" id="company" placeholder="例:　洋服" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="vat" class=" form-control-label">購入金額</label>
-                            <input type="text" id="vat" placeholder="例:　2,000円" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="street" class=" form-control-label">売却予定額</label>
-                            <input type="text" id="street" placeholder="例:　1,500円" class="form-control">
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-8">
-                                <div class="form-group">
-                                    <label for="city" class=" form-control-label">ポイント</label>
-                                    <input type="number" min="0" class="form-control">
+                        @if (session('success_message'))
+                            <div class="alert alert-success">
+                                {{ session('success_message') }}
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                @foreach ($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form action="{{ route('user.item_register') }}" method="post">
+                            {{ csrf_field() }}
+                            <div class="form-group">
+                                <label for="company" class=" form-control-label">商品名</label>
+                                <input type="text" id="product_name" name="product_name" placeholder="例:　洋服" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="vat" class=" form-control-label">購入金額</label>
+                                <input type="number" id="purchase_price" name="purchase_price" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="street" class=" form-control-label">売却予定額</label>
+                                <input type="number" id="expected_sale_price" name="expected_sale_price" class="form-control">
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="city" class=" form-control-label">ポイント</label>
+                                        <input type="number" name="point"  min="0" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="form-group">
+                                        <label for="postal-code" class=" form-control-label">売却ステータス</label>
+                                        <select name="sale_status" class="form-control">
+                                            @forelse ($sale_statuses as $sale_status)
+                                                <option value="{{ $sale_status->id }}" @if ($sale_status->id == old('sale_status')) selected @endif>{{ $sale_status->name }}</option>
+                                            @empty
+                                            @endforelse
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-8">
-                                <div class="form-group">
-                                    <label for="postal-code" class=" form-control-label">売却ステータス</label>
-                                    <select name="select" id="select" class="form-control">
-                                        <option value="0">売却前</option>
-                                        <option value="1">売却済み</option>
-                                    </select>
+                            <div class="form-group">
+                                <label for="country" class=" form-control-label">メモ</label>
+                                <textarea name="memo" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-1 offset-md-11">
+                                    <button type="submit" class="btn btn-success">追加</button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="country" class=" form-control-label">メモ</label>
-                            <textarea name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control"></textarea>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-1 offset-md-11">
-                                <button type="button" class="btn btn-success">追加</button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

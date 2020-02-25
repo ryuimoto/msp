@@ -12,6 +12,11 @@
                         <strong>アイテムの詳細</strong>
                     </div>
                     <div class="card-body card-block">
+                        @if (session('success_message'))
+                            <div class="alert alert-success">
+                                {{ session('success_message') }}
+                            </div>
+                        @endif
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -30,11 +35,11 @@
                             </div>
                             <div class="form-group">
                                 <label class=" form-control-label">購入金額</label>
-                                <input type="text" id="purchase_price" name="purchase_price" value="{{ $item->purchase_price }}" placeholder="例:　2,000円" class="form-control">
+                                <input type="number" id="purchase_price" name="purchase_price" value="{{ $item->purchase_price }}" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label class=" form-control-label">売却予定額</label>
-                                <input type="text" id="expected_sale_price" name="expected_sale_price" value="{{  $item->expected_sale_price }}" placeholder="例:　1,500円" class="form-control">
+                                <input type="number" id="expected_sale_price" name="expected_sale_price" value="{{  $item->expected_sale_price }}" class="form-control">
                             </div>
                             <div class="row form-group">
                                 <div class="col-8">
