@@ -16,7 +16,7 @@
                       {{-- <h1 class="pb-2 display-3">Sections &amp; Modal Names H2</h1> --}}
                       <div class="row">
                         <a href=""><i class="fa fa-arrow-left"></i></a>　
-                        <h3>2019年4月1日(水)</h3>　
+                        <h3>{{ date('Y年m月',  strtotime($date)) }}</h3>
                         <a href=""><i class="fa fa-arrow-right"></i></a>
                       </div>
                       <br>
@@ -27,7 +27,7 @@
                           </div>
                           <div class="col-md-4 text-left">
                             <div>
-                              <h3>100万円</h3>
+                              <h3>{{ number_format($selling_price) }}円</h3>
                             </div>
                           </div>
                         </div>
@@ -46,104 +46,19 @@
                             <i class="zmdi zmdi-account-calendar"></i>売れたアイテム</h3>
                     </div>
                     <div class="au-task js-list-load">
-                        <div class="au-task-list js-scrollbar3">
-                            <div class="au-task__item au-task__item--danger">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">10:00 AM</span>
+                        @forelse ($items as $item)
+                            <div class="au-task-list js-scrollbar3">
+                                <div class="au-task__item au-task__item--primary">
+                                    <div class="au-task__item-inner">
+                                        <h5 class="task">
+                                            <a href="{{ route('user.item_details',$item->id) }}">{{ $item->product_name }}</a>
+                                        </h5>
+                                        <span class="time">{{ number_format($item->expected_sale_price) }}円</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="au-task__item au-task__item--warning">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Create new task for Dashboard</a>
-                                    </h5>
-                                    <span class="time">11:00 AM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--success">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Create new task for Dashboard</a>
-                                    </h5>
-                                    <span class="time">03:30 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--danger js-load-item" style="display: none;">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">10:00 AM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--warning js-load-item" style="display: none;">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Create new task for Dashboard</a>
-                                    </h5>
-                                    <span class="time">11:00 AM</span>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                        @endforelse
                         <div class="au-task__footer">
                             <button class="au-btn au-btn-load js-load-btn">load more</button>
                         </div>
