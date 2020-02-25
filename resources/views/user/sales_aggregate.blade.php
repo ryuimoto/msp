@@ -15,8 +15,9 @@
                     <div class="typo-headers">
                       {{-- <h1 class="pb-2 display-3">Sections &amp; Modal Names H2</h1> --}}
                       <div class="row">
-                        <a href=""><i class="fa fa-arrow-left"></i></a>　
-                        <h3>{{ date('Y年m月',  strtotime($date)) }}</h3>
+                        <?php $prev_date = new \Carbon\Carbon($date) ?>
+                        <a href="{{ route('user.sales_monthly_aggregation',['data' => $prev_date->subMonth()->format('Y年m月') ]) }}"><i class="fa fa-arrow-left"></i></a>　
+                        <h3>{{ date('Y年m月',  strtotime($date)) }}</h3>　
                         <a href=""><i class="fa fa-arrow-right"></i></a>
                       </div>
                       <br>

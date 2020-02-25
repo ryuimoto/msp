@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 use App\SaleStatus;
 use App\Item;
@@ -27,6 +28,7 @@ class ItemRegisterController extends Controller
     public function register(Request $request)
     {
         $user = Auth::user();
+        $carbon = new Carbon();
 
         $request->validate([
             'product_name' => 'required|string',
@@ -37,16 +39,31 @@ class ItemRegisterController extends Controller
             'memo' => 'max:500', 
         ]);
 
-        Item::Create([
-            'user_id' => $user->id,
-            'product_name' => $request->product_name,
-            'purchase_price' => $request->purchase_price,
-            'expected_sale_price' => $request->expected_sale_price,
-            'point' => $request->point,
-            'sale_status' => $request->sale_status,
-            'memo' => $request->memo,
-        ]);
+        if(!$request->sale_status == 2)
+        {
+            Item::Create([
+                'user_id' => $user->id,
+                'product_name' => $request->product_name,
+                'purchase_price' => $request->purchase_price,
+                'expected_sale_price' => $request->expected_sale_price,
+                'point' => $request->point,
+                'sale_status' => $request->sale_status,
+                'memo' => $request->memo,
+            ]);
+        }else{
 
+            Item::Create([
+                'user_id' => $user->id,
+                'product_name' => $request->product_name,
+                'purchase_price' => $request->purchase_price,
+                'expected_sale_price' => $request->expected_sale_price,
+                'point' => $request->point,
+                'sale_status' => $request->sale_status,
+                'status_change_date' => $carbon,
+                'memo' => $request->memo,
+            ]);
+        }
+        
         return back()->with('success_message','アイテムを追加しました');
     }
 }

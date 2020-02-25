@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 use App\Item;
 use App\SaleStatus;
@@ -20,6 +21,7 @@ class ItemDetailsController extends Controller
 
     public function edit(Request $request,$item_id)
     {
+        $carbon = new Carbon();
 
         if($request->edit)
         {
@@ -40,6 +42,13 @@ class ItemDetailsController extends Controller
                 'sale_status' => $request->sale_status,
                 'memo' => $request->memo,
             ]);
+
+            if($request->sale_status == 2)
+            {
+                Item::where('id',$item_id)->update([
+                    'status_change_date' => $carbon,
+                ]);
+            }           
 
             return back()->with('success_message','アイテムを編集しました');
         }else{

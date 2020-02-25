@@ -22,6 +22,7 @@ class CreateItemsTable extends Migration
             $table->integer('point');
             $table->integer('sale_status');
             $table->text('memo')->nullable();
+            $table->date('status_change_date')->nullable();
             $table->timestamps();
         });
     }
