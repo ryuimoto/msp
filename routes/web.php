@@ -55,6 +55,7 @@ Route::middleware('auth:user')->group(function () {
     Route::get('/points/{date}','User\PointsMonthlyAggregationController@index')->name('user.points_monthly_aggregation');
 
     Route::get('/acount','User\AcountEditController@index')->name('user.acount_edit');
+    Route::put('/acount','User\AcountEditController@edit');
 });
 
 // 管理側

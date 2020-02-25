@@ -12,23 +12,43 @@
                         <strong>アカウント編集</strong>
                     </div>
                     <div class="card-body card-block">
-                        <form action="" method="post" class="">
+                        @if (session('success_message'))
+                            <div class="alert alert-success">
+                                {{ session('success_message') }}
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                @foreach ($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form action="{{ route('user.acount_edit') }}" method="post" id="form1">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="_method" value="PUT">
                             <div class="form-group">
                                 <label for="nf-email" class=" form-control-label">ユーザー名(ニックネーム)</label>
-                                <input type="email" id="nf-email" name="nf-email" placeholder="例:　山田太郎" class="form-control">
+                                <input type="text" name="name" value="{{ $user->name }}" placeholder="例:　山田太郎" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="nf-email" class=" form-control-label">メールアドレス</label>
+                                <input type="email" name="email" value="{{ $user->email }}" placeholder="例:　test12345@gmail.com" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="nf-password" class=" form-control-label">パスワード</label>
-                                <input type="password" id="nf-password" name="nf-password" class="form-control">
+                                <input type="password" name="password" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="nf-password" class=" form-control-label">パスワードの確認</label>
-                                <input type="password" id="nf-password" name="nf-password" class="form-control">
+                                <input type="password" name="password_confirmation" class="form-control">
                             </div>
                         </form>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-sm">
+                        <button type="button" id="edit" class="btn btn-primary btn-sm">
                             <i class="fa fa-dot-circle-o"></i> 編集する
                         </button>
                     </div>
@@ -62,5 +82,11 @@
  
      <!-- Main JS-->
      <script src="{{ asset('library/CoolAdmin-master/js/main.js') }}"></script>
-     
+     <script>
+        $(function(){
+            $('#edit').click(function(){
+                $('#form1').submit();
+            });
+        });
+     </script>
 @endsection

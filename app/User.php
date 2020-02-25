@@ -7,8 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use App\Notifications\User\ResetPassword;
 
-
-
 class User extends Authenticatable
 {
     use Notifiable;

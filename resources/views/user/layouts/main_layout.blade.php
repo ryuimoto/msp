@@ -178,7 +178,7 @@
                                             <div class="info clearfix">
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">{{ auth()->user()->email }}</a>
+                                                        <a href="{{ route('user.acount_edit') }}">{{ auth()->user()->email }}</a>
                                                     </h5>
                                                 </div>
                                             </div>
