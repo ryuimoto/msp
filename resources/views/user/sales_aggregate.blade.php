@@ -16,9 +16,10 @@
                       {{-- <h1 class="pb-2 display-3">Sections &amp; Modal Names H2</h1> --}}
                       <div class="row">
                         <?php $prev_date = new \Carbon\Carbon($date) ?>
-                        <a href="{{ route('user.sales_monthly_aggregation',['data' => $prev_date->subMonth()->format('Y年m月') ]) }}"><i class="fa fa-arrow-left"></i></a>　
+                        <a href="{{ route('user.sales_monthly_aggregation',['date' => $prev_date->subMonth()->format('Y年m月') ]) }}"><i class="fa fa-arrow-left"></i></a>　
                         <h3>{{ date('Y年m月',  strtotime($date)) }}</h3>　
-                        <a href=""><i class="fa fa-arrow-right"></i></a>
+                        <?php $next_date = new \Carbon\Carbon($date) ?>
+                        <a href="{{ route('user.sales_monthly_aggregation',['date' => $next_date->addMonth()->format('Y年m月') ]) }}"><i class="fa fa-arrow-right"></i></a>
                       </div>
                       <br>
                       <div class="vue-lists">
@@ -47,8 +48,8 @@
                             <i class="zmdi zmdi-account-calendar"></i>売れたアイテム</h3>
                     </div>
                     <div class="au-task js-list-load">
-                        @forelse ($items as $item)
-                            <div class="au-task-list js-scrollbar3">
+                        <div class="au-task-list js-scrollbar3">
+                            @forelse ($items as $item)
                                 <div class="au-task__item au-task__item--primary">
                                     <div class="au-task__item-inner">
                                         <h5 class="task">
@@ -57,17 +58,15 @@
                                         <span class="time">{{ number_format($item->expected_sale_price) }}円</span>
                                     </div>
                                 </div>
-                            </div>
-                        @empty
-                        @endforelse
-                        <div class="au-task__footer">
-                            <button class="au-btn au-btn-load js-load-btn">load more</button>
+                            @empty
+                            @endforelse
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        {{-- 時間があれば作る --}}
+        {{-- <div class="row">
             <div class="col-lg-12">
                 <div class="au-card m-b-30">
                     <div class="au-card-inner"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
@@ -76,7 +75,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}} 
     </div>
 </div> 
 @endsection

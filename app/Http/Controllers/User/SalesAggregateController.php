@@ -26,7 +26,8 @@ class SalesAggregateController extends Controller
         $items = Item::where([
             'user_id' => $user->id, 
             'sale_status' => 2,
-        ]);
+        ])->whereYear('status_change_date',$carbon->year)
+        ->whereMonth('status_change_date',$carbon->month);
 
         $selling_price = $items->sum('expected_sale_price');
 
