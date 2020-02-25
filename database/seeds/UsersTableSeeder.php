@@ -33,6 +33,27 @@ class UsersTableSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ],
+            [
+                'email' => '097688@gmail.com',
+                'name' => 'ぐへへへ',
+                'password' => bcrypt('test12345'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'email' => 'ewt4wyteui23456@gmail.com',
+                'name' => 'ぐへへへ',
+                'password' => bcrypt('test12345'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
+            [
+                'email' => 'eheokhnoketnh@gmail.com',
+                'name' => 'ぐへへへ',
+                'password' => bcrypt('test12345'),
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+            ],
         ]);
     }
 }
