@@ -15,9 +15,11 @@
                     <div class="typo-headers">
                       {{-- <h1 class="pb-2 display-3">Sections &amp; Modal Names H2</h1> --}}
                       <div class="row">
-                        <a href=""><i class="fa fa-arrow-left"></i></a>　
-                        <h3>2019年4月1日(水)</h3>　
-                        <a href=""><i class="fa fa-arrow-right"></i></a>
+                        <?php $prev_date = new \Carbon\Carbon($date) ?>
+                        <a href="{{ route('user.points_monthly_aggregation',['date' => $prev_date->subMonth()->format('Y年m月')]) }}"><i class="fa fa-arrow-left"></i></a>　
+                        <h3>{{ date('Y年m月',  strtotime($date)) }}</h3>　
+                        <?php $next_date = new \Carbon\Carbon($date) ?>
+                        <a href="{{ route('user.points_monthly_aggregation',['date' => $next_date->addMonth()->format('Y年m月')]) }}"><i class="fa fa-arrow-right"></i></a>
                       </div>
                       <br>
                       <div class="vue-lists">
@@ -27,7 +29,7 @@
                           </div>
                           <div class="col-md-4 text-left">
                             <div>
-                              <h3>100ポイント</h3>
+                              <h3>{{ $selling_point }}ポイント</h3>
                             </div>
                           </div>
                         </div>
@@ -47,111 +49,24 @@
                     </div>
                     <div class="au-task js-list-load">
                         <div class="au-task-list js-scrollbar3">
-                            <div class="au-task__item au-task__item--danger">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">10:00 AM</span>
+                            @forelse ($points as $point)
+                                <div class="au-task__item au-task__item--primary">
+                                    <div class="au-task__item-inner">
+                                        <h5 class="task">
+                                            <a href="{{ route('user.item_details',$point->id) }}">{{ $point->product_name }}</a>
+                                        </h5>
+                                        <span class="time">{{ $point->point }}ポイント</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="au-task__item au-task__item--warning">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Create new task for Dashboard</a>
-                                    </h5>
-                                    <span class="time">11:00 AM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--primary">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">02:00 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--success">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Create new task for Dashboard</a>
-                                    </h5>
-                                    <span class="time">03:30 PM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--danger js-load-item" style="display: none;">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                    </h5>
-                                    <span class="time">10:00 AM</span>
-                                </div>
-                            </div>
-                            <div class="au-task__item au-task__item--warning js-load-item" style="display: none;">
-                                <div class="au-task__item-inner">
-                                    <h5 class="task">
-                                        <a href="#">Create new task for Dashboard</a>
-                                    </h5>
-                                    <span class="time">11:00 AM</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="au-task__footer">
-                            <button class="au-btn au-btn-load js-load-btn">load more</button>
+                            @empty
+                            @endforelse
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        {{-- 時間があれば作る --}}
+        {{-- <div class="row">
             <div class="col-lg-12">
                 <div class="au-card m-b-30">
                     <div class="au-card-inner"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
@@ -160,7 +75,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div> 
 @endsection

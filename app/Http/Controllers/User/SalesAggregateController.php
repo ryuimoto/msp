@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-
 use App\Item;
 
 class SalesAggregateController extends Controller
