@@ -19,9 +19,16 @@ class CreateUsersTable extends Migration
             $table->string('real_name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('tel');
+            $table->text('memo');
             $table->integer('item_count');
             $table->date('last_operation_date');
             $table->date('last_login_date');
+            $table->string('a8_acount_id');
+            $table->string('a8_acount_pass');
+            $table->boolean('restriction_flag');
+            $table->string('rakuten_acount_id')->nullable();
+            $table->string('rakuten_acount_pass')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -125,6 +125,12 @@ return [
         'point' => 'ポイント',
         'sale_status' => '売却ステータス',
         'memo' => 'メモ',
+        'real_name' => '本名',
+        'tel' => '電話番号',
+        'a8_acount_id' => 'A8アカウント',
+        'a8_acount_pass' => 'A8アカウントのパスワード',
+        'rakuten_acount_id' => '楽天のアカウント',
+        'rakuten_acount_pass' => '楽天のパスワード',
     ],
 
 ];
