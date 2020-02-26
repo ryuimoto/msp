@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 use App\User;
+
 
 class UserRegisterController extends Controller
 {
@@ -18,10 +20,12 @@ class UserRegisterController extends Controller
     {
         // dd($request->all());
 
+        $carbon = new Carbon();
+
         $request->validate([
             'name' => 'required|string',
             'real_name' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required',
             'tel' => 'required|regex:/^[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}$/',
             'memo' => 'max:3000',
@@ -47,6 +51,9 @@ class UserRegisterController extends Controller
             'rakuten_acount_id' => $request->rakuten_acount_id,
             'rakuten_acount_pass' => $request->rakuten_acount_pass,
             'restriction_flag' => true,
+            'last_operation_date' => $carbon,
+            'last_login_date' => $carbon,
+
         ]);
 
         return back()->with([

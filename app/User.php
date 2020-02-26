@@ -29,6 +29,8 @@ class User extends Authenticatable
         'rakuten_acount_id',
         'rakuten_acount_pass',
         'restriction_flag',
+        'last_operation_date',
+        'last_login_date',
     ];
 
     /**
