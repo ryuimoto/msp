@@ -73,6 +73,7 @@ Route::prefix('admin432aKOIqr')->group(function () {
       Route::get('/','Admin\TopController@index')->name('admin.top');
 
       Route::get('/users','Admin\UsersListController@index')->name('admin.users_list');
+    //   Route::post('/users','Admin\UsersListController@search');
 
       Route::get('/user/register','Admin\UserRegisterController@index')->name('admin.users_register');
 

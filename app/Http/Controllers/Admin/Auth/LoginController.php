@@ -31,7 +31,6 @@ class LoginController extends Controller
         return 'name';
     }
 
-
     protected function guard()
     {
         return \Auth::guard('admin');
