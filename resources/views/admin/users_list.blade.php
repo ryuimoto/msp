@@ -2,6 +2,9 @@
 @section('title')
   MSP管理側|ユーザー一覧
 @endsection
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/admin/users_list.css') }}">
+@endsection
 @section('item_name')
   <a class="navbar-brand" href="#pablo">ユーザー一覧</a>
 @endsection
@@ -56,13 +59,13 @@
               <tbody>
                 @forelse ($users as $user)
                   <tr role="row" class="even">
-                    <td class="sorting_1" tabindex="0">{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->real_name }}</td>
-                    <td>{{ $user->item_count }}</td>
-                    <td>{{ date('Y/m/d',  strtotime($user->created_at)) }}</td>
-                    <td>{{ date('Y/m/d',  strtotime($user->last_operation_date)) }}</td>
-                    <td class="text-right">{{ date('Y/m/d',  strtotime($user->last_login_date)) }}</td>
+                    <td class="sorting_1" tabindex="0"><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->id }}</a></td>
+                    <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->name }}</a></td>
+                    <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->real_name }}</a></td>
+                    <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->item_count }}</a></td>
+                    <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ date('Y/m/d',  strtotime($user->created_at)) }}</a></td>
+                    <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ date('Y/m/d',  strtotime($user->last_operation_date)) }}</a></td>
+                    <td class="text-right"><a href="">{{ date('Y/m/d',  strtotime($user->last_login_date)) }}</a></td>
                   </tr>
                 @empty
                 @endforelse

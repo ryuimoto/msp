@@ -32,6 +32,7 @@
   <link href="{{ asset('library/material-dashboard-pro-html-v2.1.0/assets/css/material-dashboard.css?v=2.1.0') }}" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{{ asset('library/material-dashboard-pro-html-v2.1.0/assets/demo/demo.css') }}" rel="stylesheet" />
+  @yield('css')
 </head>
 <body class="">
   <div class="wrapper ">

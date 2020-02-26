@@ -1,0 +1,10 @@
+table{
+    table-layout: fixed;      
+}
+
+#big{
+    text-decoration: none;
+    display: block;
+    width: 1000%;
+    height: 100%;
+}

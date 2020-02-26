@@ -17,7 +17,6 @@ class UsersListController extends Controller
 
         if(!empty($keyword))
         {
-
             $query->where('id','like','%'. $keyword .'%')
             ->orWhere('name','like','%'.$keyword.'%')
             ->orWhere('real_name','like','%'.$keyword.'%')
