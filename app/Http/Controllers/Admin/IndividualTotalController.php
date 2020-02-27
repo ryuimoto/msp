@@ -16,19 +16,19 @@ class IndividualTotalController extends Controller
         $this->middleware('auth:admin');
     }
 
-    public function index($item_id)
+    public function index($user_id)
     {
-   
         $carbon = new Carbon();
 
-        $sales_data = Item::where('id',$item_id)->first();
+        $user = User::where('id',$user_id)->first();
 
-        // dd($sales_data);
+        $sales_data = Item::where('user_id',$user_id)->get();
 
         return view('admin.individual_total')->with([
-            'date' => $carbon,
-            'user' => $sales_data,
             'user_id' => $user_id,
+            'date' => $carbon,
+            'sales_datas' => $sales_data,
+            'user' => $user,
         ]);
     }
 }

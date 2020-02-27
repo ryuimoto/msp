@@ -88,7 +88,6 @@ Route::prefix('admin432aKOIqr')->group(function () {
       Route::get('/sales/user/{user_id}','Admin\IndividualTotalController@index')->name('admin.individual_total');
       
       Route::get('/sales/user/{user_id}/{date}','Admin\IndividualTotalMonthlyController@index')->name('admin.individual_total_monthly');
-      
 
       Route::get('/points/total','Admin\PointsTotalController@index')->name('admin.points_total');
 

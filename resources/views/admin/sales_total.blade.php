@@ -120,9 +120,9 @@
               <tbody>
                 @forelse ($users as $user)
                   <tr role="row" class="odd">
-                    <td tabindex="0" class="sorting_1"><a id="big" href="{{ route('admin.individual_total',['user_id' => $user->id ]) }}">{{ $user->id }}</a></td>
-                    <td><a id="big" href="{{ route('admin.individual_total',['user_id' => $user->id]) }}">{{ $user->user->name }}</a></td>
-                    <td><a id="big" href="{{ route('admin.individual_total',['user_id' => $user->id]) }}">{{ number_format($user->expected_sale_price) }}</a></td>
+                    <td tabindex="0" class="sorting_1"><a id="big" href="{{ route('admin.individual_total',['user_id' => $user->user->id ]) }}">{{ $user->user->id }}</a></td>
+                    <td><a id="big" href="{{ route('admin.individual_total',['user_id' => $user->user->id]) }}">{{ $user->user->name }}</a></td>
+                    <td><a id="big" href="{{ route('admin.individual_total',['user_id' => $user->user->id]) }}">{{ number_format($user->expected_sale_price) }}</a></td>
                   </tr>
                 @empty
                 @endforelse
