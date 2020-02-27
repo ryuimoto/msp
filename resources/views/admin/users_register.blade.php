@@ -92,7 +92,6 @@
                 </div>
               </div>
             </div>
-           
             <div class="row">
               <label class="col-sm-3 col-form-label">A8アカウント ID</label>
               <div class="col-sm-3">

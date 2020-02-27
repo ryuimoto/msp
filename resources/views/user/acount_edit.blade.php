@@ -36,6 +36,7 @@
                             <div class="form-group">
                                 <label for="nf-email" class=" form-control-label">メールアドレス</label>
                                 <input type="email" name="email" value="{{ $user->email }}" placeholder="例:　test12345@gmail.com" class="form-control">
+                                <input type="hidden" name="email_hidden" value="{{ $user->email }}">
                             </div>
                             <div class="form-group">
                                 <label for="nf-password" class=" form-control-label">パスワード</label>

@@ -9,6 +9,11 @@ use App\User;
 
 class UsersListController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index(Request $request)
     {
         $keyword = $request->input('search');

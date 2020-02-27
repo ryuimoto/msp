@@ -72,13 +72,14 @@ Route::prefix('admin432aKOIqr')->group(function () {
     Route::middleware('auth:admin')->group(function () {
       Route::get('/','Admin\TopController@index')->name('admin.top');
 
-      Route::get('/users','Admin\UsersListController@index')->name('admin.users_list');
-      
-      Route::get('/user/{user_id}','Admin\UserEditController@index')->name('admin.users_edit');
+      Route::get('/users','Admin\UsersListController@index')->name('admin.users_list');      
 
       Route::get('/user/register','Admin\UserRegisterController@index')->name('admin.users_register');
-    //   Route::post('/user/register','Admin\UserRegisterController@register');
+      Route::post('/user/register','Admin\UserRegisterController@register');
 
+      Route::get('/user/{user_id}','Admin\UserEditController@index')->name('admin.users_edit');
+      Route::put('/user/{user_id}','Admin\UserEditController@edit');
+      Route::delete('/user/{user_id}','Admin\UserEditController@delete');
 
       Route::get('/sales/total','Admin\SalesTotalController@index')->name('admin.sales_total');
 

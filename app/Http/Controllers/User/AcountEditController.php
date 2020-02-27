@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 use App\User;
 
@@ -32,8 +33,12 @@ class AcountEditController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed',
+            'email' => [
+                'required',
+                Rule::unique('users')->ignore($user->id),
+            ]
+
         ]);
 
         User::where('id',$user->id)

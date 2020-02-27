@@ -8,7 +8,6 @@ use Carbon\Carbon;
 
 use App\User;
 
-
 class UserRegisterController extends Controller
 {
     public function __construct()
@@ -18,15 +17,11 @@ class UserRegisterController extends Controller
 
     public function index()
     {
-        return 34567800;
-
-        // return view('admin.users_register');
+        return view('admin.users_register');
     }
 
     public function register(Request $request)
     {
-        // dd($request->all());
-
         $carbon = new Carbon();
 
         $request->validate([
