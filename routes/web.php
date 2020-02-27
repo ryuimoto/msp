@@ -82,6 +82,8 @@ Route::prefix('admin432aKOIqr')->group(function () {
       Route::delete('/user/{user_id}','Admin\UserEditController@delete');
 
       Route::get('/sales/total','Admin\SalesTotalController@index')->name('admin.sales_total');
+      
+      Route::get('/sales/total/{date}','Admin\SalesTotalMonthlyAggregationController@index')->name('admin.sales_total_monthly');
 
       Route::get('/sales/user/{user_id}','Admin\IndividualTotalController@index')->name('admin.individual_total');
 

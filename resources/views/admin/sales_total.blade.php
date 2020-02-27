@@ -31,9 +31,11 @@
                 <div class="row">
                   <div class="col-md-7">
                     <div class="row">
-                      <a href=""><i class="material-icons">navigate_before</i></a>
-                      <h4 class="card-title">2019年3月21日(水)</h4>
-                      <a href=""><i class="material-icons">navigate_next</i></a>
+                      <?php $prev_date = new \Carbon\Carbon($date) ?>
+                      <a href="{{ route('admin.sales_total_monthly',['date' => $prev_date->subMonth()->format('Y年m月')]) }}"><i class="material-icons">navigate_before</i></a>
+                      <h4 class="card-title">{{ date('Y年m月',  strtotime($date)) }}</h4>
+                      <?php $next_date = new \Carbon\Carbon($date) ?>
+                      <a href="{{ route('admin.sales_total_monthly',['date' => $next_date->addMonth()->format('Y年m月')]) }}"><i class="material-icons">navigate_next</i></a>
                     </div>
                   </div>
                   <div class="col-md-5">
@@ -47,7 +49,7 @@
                     <div class="col-md-9 offset-md-3">
                       <div class="tim-typo">
                         <h2>
-                          <span class="tim-note">セールス金額</span>100万円</h2>
+                          <span class="tim-note">セールス金額</span>{{ $sales_amount }}</h2>
                       </div>
                     </div>
                   </div>
