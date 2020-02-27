@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class ItemsTableSeeder extends Seeder
 {
     /**
@@ -11,6 +12,7 @@ class ItemsTableSeeder extends Seeder
      */
     public function run()
     {
+
         DB::table('items')->insert([
             [
                'product_name' => 'りんご',
@@ -18,7 +20,7 @@ class ItemsTableSeeder extends Seeder
                'user_id' => 1,
                'expected_sale_price' => 100000,
                'point' => 30,
-               'sale_status' => 1,
+               'sale_status' => 2,
                'memo' => null,
                'created_at' => date('Y-m-d H:i:s'),
                'updated_at' => date('Y-m-d H:i:s'),

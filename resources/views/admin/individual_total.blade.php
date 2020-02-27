@@ -7,7 +7,7 @@
 @endsection
 @section('contents')
   <div class="header text-center ml-auto mr-auto">
-    <h3 class="title">田中太郎さん</h3>
+    <h3 class="title">{{ $user }}さん</h3>
   </div>
   <div class="row">
     <div class="col-md-8 ml-auto mr-auto">
@@ -34,9 +34,11 @@
                 <div class="row">
                   <div class="col-md-7">
                     <div class="row">
-                      <a href=""><i class="material-icons">navigate_before</i></a>
-                      <h4 class="card-title">2019年3月21日(水)</h4>
-                      <a href=""><i class="material-icons">navigate_next</i></a>
+                      <?php $prev_date = new \Carbon\Carbon($date) ?>
+                      <a href="{{ route('admin.individual_total',['user_id' => $user_id,'date' => $prev_date ]) }}"><i class="material-icons">navigate_before</i></a>
+                      <h4 class="card-title">{{ date('Y年m月',  strtotime($date)) }}</h4>
+                      <?php $next_date = new \Carbon\Carbon($date) ?>
+                      <a href="{{ route('admin.individual_total',['user_id' => $user_id,'date' => $next_date ]) }}"><i class="material-icons">navigate_next</i></a>
                     </div>
                   </div>
                   <div class="col-md-5">
@@ -99,7 +101,7 @@
           <div class="card-icon">
             <i class="material-icons">assignment</i>
           </div>
-          <h4 class="card-title">ユーザーリスト</h4>
+          <h4 class="card-title">セールスリスト</h4>
         </div>
         <div class="card-body">
           <div class="toolbar">

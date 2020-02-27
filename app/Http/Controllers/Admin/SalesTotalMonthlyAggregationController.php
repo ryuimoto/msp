@@ -31,6 +31,7 @@ class SalesTotalMonthlyAggregationController extends Controller
         return view('admin.sales_total')->with([
             'date' => $carbon,
             'sales_amount' => $sales_datas->sum('expected_sale_price'), 
+            'users' => $sales_datas->paginate(10),
         ]);
     }
 }

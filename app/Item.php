@@ -27,5 +27,10 @@ class Item extends Model
     {
         return $this->belongsTo('App\SaleStatus','sale_status'); 
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User','user_id');
+    }
 }
  

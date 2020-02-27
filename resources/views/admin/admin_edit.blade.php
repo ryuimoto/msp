@@ -14,12 +14,28 @@
       </div>
     </div>
     <div class="card-body ">
-      <form method="get" action="/" class="form-horizontal">
+        @if (session('success_message'))
+          <div class="alert alert-success">
+              {{ session('success_message') }}
+          </div>
+        @endif
+        @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+              @foreach ($errors->all() as $error)
+                  <p>{{ $error }}</p>
+              @endforeach
+              </ul>
+          </div>
+        @endif
+        <form method="post" action="{{ route('admin.admin_edit') }}" class="form-horizontal">
+        {{ csrf_field() }}
+        <input type="hidden" name="_method" value="PUT">
         <div class="row">
           <label class="col-sm-2 col-form-label">アカウント名</label>
           <div class="col-sm-10">
             <div class="form-group bmd-form-group">
-              <input type="text" class="form-control">
+              <input type="text" name="name" value="{{ auth()->user()->name }}" class="form-control">
             </div>
           </div>
         </div>
@@ -27,7 +43,7 @@
           <label class="col-sm-2 col-form-label">新しいパスワード</label>
           <div class="col-sm-10">
             <div class="form-group bmd-form-group">
-              <input type="password" class="form-control">
+              <input type="password" name="password" class="form-control">
             </div>
           </div>
         </div>
@@ -35,7 +51,7 @@
           <label class="col-sm-2 col-form-label">新しいパスワード確認</label>
           <div class="col-sm-10">
             <div class="form-group bmd-form-group">
-              <input type="text" class="form-control" placeholder="">
+              <input type="password" name="password_confirmation" class="form-control" placeholder="">
             </div>
           </div>
         </div>  

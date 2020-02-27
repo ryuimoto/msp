@@ -86,12 +86,16 @@ Route::prefix('admin432aKOIqr')->group(function () {
       Route::get('/sales/total/{date}','Admin\SalesTotalMonthlyAggregationController@index')->name('admin.sales_total_monthly');
 
       Route::get('/sales/user/{user_id}','Admin\IndividualTotalController@index')->name('admin.individual_total');
+      
+      Route::get('/sales/user/{user_id}/{date}','Admin\IndividualTotalMonthlyController@index')->name('admin.individual_total_monthly');
+      
 
       Route::get('/points/total','Admin\PointsTotalController@index')->name('admin.points_total');
 
       Route::get('/points/user/{user_id}','Admin\PointsIndividualTotalController@index')->name('admin.points_individual_total');
 
       Route::get('/admin','Admin\AdminEditController@index')->name('admin.admin_edit');
+      Route::put('/admin','Admin\AdminEditController@edit');
 
     });
 });
