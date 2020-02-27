@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header card-header-rose card-header-icon">
+        <div class="card-header card-header-primary card-header-icon">
           <div class="card-icon">
             <i class="material-icons">assignment</i>
           </div>
@@ -43,42 +43,40 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-12">
-                  <table id="datatables" class="table table-striped table-no-bordered table-hover dataTable dtr-inline" cellspacing="0" width="100%" style="width: 100%;" role="grid" aria-describedby="datatables_info">
-              <thead>
-                <tr role="row">
-                  <th wspan="1" colspan="1" style="width: 191px;">ID</th>
-                  <th  aria-controls="datatables" rowspan="1" colspan="1" style="width: 280px;" aria-label="Position: activate to sort column ascending">ユーザー名</th>
-                  <th  aria-controls="datatables" rowspan="1" colspan="1" style="width: 280px;" aria-label="Position: activate to sort column ascending">本名</th>
-                  <th  aria-controls="datatables" rowspan="1" colspan="1" style="width: 143px;" aria-label="Office: activate to sort column ascending">登録アイテム数</th>
-                  <th  aria-controls="datatables" rowspan="1" colspan="1" style="width: 123px;" aria-label="Age: activate to sort column ascending">登録日時</th>
-                  <th  aria-controls="datatables" rowspan="1" colspan="1" style="width: 123px;" aria-label="Date: activate to sort column ascending">最終操作日時</th>
-                  <th class="text-right" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 223px;" aria-label="Actions: activate to sort column ascending">最終ログイン日時</th>
-                </tr>
-              </thead>
-              <tbody>
-                @forelse ($users as $user)
-                  <tr role="row" class="even">
-                    <td class="sorting_1" tabindex="0"><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->id }}</a></td>
-                    <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->name }}</a></td>
-                    <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->real_name }}</a></td>
-                    <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->item_count }}</a></td>
-                    <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ date('Y/m/d',  strtotime($user->created_at)) }}</a></td>
-                    <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ date('Y/m/d',  strtotime($user->last_operation_date)) }}</a></td>
-                    <td class="text-right"><a href="">{{ date('Y/m/d',  strtotime($user->last_login_date)) }}</a></td>
-                  </tr>
-                @empty
-                @endforelse
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 offset-md-6">
-            {{ $users->links() }}
+                <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>ユーザー名</th>
+                      <th>本名</th>
+                      <th>登録アイテム数</th>
+                      <th>登録日時</th>
+                      <th>最終操作日時</th>
+                      <th class="disabled-sorting text-right">最終ログイン日時</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @forelse ($users as $user)
+                    <tr role="row" class="even">
+                      <td class="sorting_1" tabindex="0"><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->id }}</a></td>
+                      <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->name }}</a></td>
+                      <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->real_name }}</a></td>
+                      <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->item_count }}</a></td>
+                      <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ date('Y/m/d',  strtotime($user->created_at)) }}</a></td>
+                      <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ date('Y/m/d',  strtotime($user->last_operation_date)) }}</a></td>
+                      <td class="text-right"><a href="">{{ date('Y/m/d',  strtotime($user->last_login_date)) }}</a></td>
+                    </tr>
+                    @empty
+                    @endforelse
+                  </tbody>
+                </table>
+              </div>
+              <div class="row">
+                <div class="col-md-7 offset-md-5">
+                  {{ $users->links() }}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- end content-->
