@@ -64,7 +64,7 @@
                       <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ $user->item_count }}</a></td>
                       <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ date('Y/m/d',  strtotime($user->created_at)) }}</a></td>
                       <td><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ date('Y/m/d',  strtotime($user->last_operation_date)) }}</a></td>
-                      <td class="text-right"><a href="">{{ date('Y/m/d',  strtotime($user->last_login_date)) }}</a></td>
+                      <td class="text-right"><a id="big" href="{{ route('admin.users_edit',$user->id) }}">{{ date('Y/m/d',  strtotime($user->last_login_date)) }}</a></td>
                     </tr>
                     @empty
                     @endforelse

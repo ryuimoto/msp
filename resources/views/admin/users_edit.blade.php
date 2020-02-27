@@ -20,7 +20,7 @@
               <label class="col-sm-2 col-form-label">ユーザー名</label>
               <div class="col-sm-10">
                 <div class="form-group bmd-form-group">
-                  <input type="text" class="form-control">
+                  <input type="text" name="name" class="form-control" value="{{ $data->name }}">
                 </div>
               </div>
             </div>
@@ -36,7 +36,7 @@
               <label class="col-sm-2 col-form-label">電話番号</label>
               <div class="col-sm-10">
                 <div class="form-group bmd-form-group">
-                  <input type="text" class="form-control" placeholder="">
+                  <input type="text" class="form-control" name="tel" placeholder="" value="{{ $data->tel }}">
                 </div>
               </div>
             </div>
@@ -44,7 +44,7 @@
               <label class="col-sm-2 col-form-label">メールアドレス</label>
               <div class="col-sm-10">
                 <div class="form-group bmd-form-group is-filled">
-                  <input type="text" class="form-control" placeholder="">
+                  <input type="text" class="form-control" placeholder="" name="email" value="{{ $data->email }}">
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@
               <label class="col-sm-2 col-form-label">メモ</label>
               <div class="col-sm-10">
                 <div class="form-group bmd-form-group is-filled">
-                  <textarea class="form-control" name="" placeholder="3000文字以下" id="" rows="8"></textarea>
+                  <textarea class="form-control" name="memo" placeholder="3000文字以下" id="" rows="8">{{ $data->memo }}</textarea>
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group bmd-form-group">
-                      <input type="text" class="form-control" placeholder="">
+                      <input type="text" class="form-control" placeholder="" name="a8_acount_id" value="{{ $data->a8_acount_id }}">
                     </div>
                   </div>
                 </div>
@@ -72,7 +72,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group bmd-form-group">
-                      <input type="text" class="form-control" placeholder="">
+                      <input type="text" class="form-control" placeholder="" name="a8_acount_pass" value="{{ $data->a8_acount_pass }}">
                     </div>
                   </div>
                 </div>
@@ -84,7 +84,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group bmd-form-group">
-                      <input type="text" class="form-control" placeholder="">
+                      <input type="text" class="form-control" placeholder="" name="rakuten_acount_id" value="{{ $data->rakuten_acount_id }}">
                     </div>
                   </div>
                 </div>
@@ -94,7 +94,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group bmd-form-group">
-                      <input type="text" class="form-control" placeholder="">
+                      <input type="text" class="form-control" placeholder="" name="rakuten_acount_pass" value="{{ $data->rakuten_acount_pass }}">
                     </div>
                   </div>
                 </div>

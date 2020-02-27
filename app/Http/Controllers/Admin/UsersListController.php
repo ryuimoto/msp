@@ -26,7 +26,7 @@ class UsersListController extends Controller
             ->orWhere('last_login_date','like','%'.$keyword.'%');
         }
 
-        $users = $query->orderBy('created_at','desc')->paginate(5);
+        $users = $query->orderBy('id','asc')->paginate(5);
 
         return view('admin.users_list')->with([
             'users' => $users,

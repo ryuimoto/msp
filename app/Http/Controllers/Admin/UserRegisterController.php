@@ -11,9 +11,16 @@ use App\User;
 
 class UserRegisterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index()
     {
-        return view('admin.users_register');
+        return 34567800;
+
+        // return view('admin.users_register');
     }
 
     public function register(Request $request)
@@ -58,7 +65,6 @@ class UserRegisterController extends Controller
 
         return back()->with([
             'success_message' => 'アカウントを追加しました', 
-            // 'tel.regex' => '電話番号は000-000-000 のフォーマットで入力してください',
         ]);
     }
 }
