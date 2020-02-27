@@ -75,6 +75,8 @@ class UserEditController extends Controller
 
     public function delete(Request $request)
     {
-        return "削除します";
+        User::where('id',$request->id)->delete();
+
+        return redirect()->route('admin.users_list');
     }
 }
