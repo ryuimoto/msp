@@ -1,13 +1,13 @@
 @extends('admin.layouts.main_layout')
 @section('title')
-  MSP管理側|ユーザー個別集計
+  MSP管理側|ユーザー個別ポイント集計
 @endsection
 @section('item_name')
   <a class="navbar-brand" href="#pablo">ユーザー個別集計</a>
 @endsection
 @section('contents')
   <div class="header text-center ml-auto mr-auto">
-    <h3 class="title">田中太郎さん</h3>
+    <h3 class="title">{{ $user->name }}</h3>
   </div>
   <div class="row">
     <div class="col-md-8 ml-auto mr-auto">
@@ -34,9 +34,11 @@
                 <div class="row">
                   <div class="col-md-7">
                     <div class="row">
-                      <a href=""><i class="material-icons">navigate_before</i></a>
-                      <h4 class="card-title">2019年3月21日(水)</h4>
-                      <a href=""><i class="material-icons">navigate_next</i></a>
+                      <?php $prev_date = new \Carbon\Carbon($date) ?>
+                      <a href="{{ route('admin.points_individual_total_monthly',['user_id' => $user->id,'date' => $prev_date->subMonth()->format('Y年m月')]) }}"><i class="material-icons">navigate_before</i></a>
+                      <h4 class="card-title">{{ date('Y年m月',  strtotime($date)) }}</h4>
+                      <?php $next_date = new \Carbon\Carbon($date) ?>
+                      <a href="{{ route('admin.points_individual_total_monthly',['user_id' => $user->id,'date' => $next_date->addMonth()->format('Y年m月')]) }}"><i class="material-icons">navigate_next</i></a>
                     </div>
                   </div>
                   <div class="col-md-5">
@@ -50,7 +52,7 @@
                     <div class="col-md-9 offset-md-3">
                       <div class="tim-typo">
                         <h2>
-                          <span class="tim-note">ポイント数</span>100ポイント</h2>
+                          <span class="tim-note">ポイント数</span>{{ $points_amount }}P</h2>
                       </div>
                     </div>
                   </div>
@@ -99,7 +101,7 @@
           <div class="card-icon">
             <i class="material-icons">assignment</i>
           </div>
-          <h4 class="card-title">ユーザーリスト</h4>
+          <h4 class="card-title">ポイントリスト</h4>
         </div>
         <div class="card-body">
           <div class="toolbar">
@@ -108,124 +110,23 @@
           <div class="material-datatables">
             <div id="datatables_wrapper" class="dataTables_wrapper dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"><div id="datatables_filter" class="dataTables_filter"><label><span class="bmd-form-group bmd-form-group-sm"></span></label></div></div></div><div class="row"><div class="col-sm-12"><table id="datatables" class="table table-striped table-no-bordered table-hover dataTable dtr-inline" cellspacing="0" width="100%" style="width: 100%;" role="grid" aria-describedby="datatables_info">
               <thead>
-                <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 231px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">ユーザー名</th><th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 337px;" aria-label="Position: activate to sort column ascending">Position</th><th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 174px;" aria-label="Office: activate to sort column ascending">Office</th><th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 64px;" aria-label="Age: activate to sort column ascending">Age</th><th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 149px;" aria-label="Date: activate to sort column ascending">Date</th><th class="disabled-sorting text-right sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 269px;" aria-label="Actions: activate to sort column ascending">Actions</th></tr>
+                <tr role="row">
+                  <th rowspan="1" colspan="1" style="width: 231px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">ID</th>
+                  <th rowspan="1" colspan="1" style="width: 337px;" aria-label="Position: activate to sort column ascending">商品名</th>
+                  <th rowspan="1" colspan="1" style="width: 174px;" aria-label="Office: activate to sort column ascending">獲得ポイント</th>
+                </tr>
               </thead>
-              <tfoot>
-                <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th class="text-right" rowspan="1" colspan="1">Actions</th></tr>
-              </tfoot>
               <tbody>
-              <tr role="row" class="odd">
-                  <td tabindex="0" class="sorting_1"><a href="">Airi Satou</a></td>
-                  <td>Accountant</td>
-                  <td>Tokyo</td>
-                  <td>33</td>
-                  <td>2008/11/28</td>
-                  <td class="text-right">
-                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                  </td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1" tabindex="0">Angelica Ramos</td>
-                  <td>Chief Executive Officer (CEO)</td>
-                  <td>London</td>
-                  <td>47</td>
-                  <td>2009/10/09</td>
-                  <td class="text-right">
-                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                  </td>
-                </tr><tr role="row" class="odd">
-                  <td tabindex="0" class="sorting_1">Ashton Cox</td>
-                  <td>Junior Technical Author</td>
-                  <td>San Francisco</td>
-                  <td>66</td>
-                  <td>2009/01/12</td>
-                  <td class="text-right">
-                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                  </td>
-                </tr><tr role="row" class="even">
-                  <td class="sorting_1" tabindex="0">Bradley Greer</td>
-                  <td>Software Engineer</td>
-                  <td>London</td>
-                  <td>41</td>
-                  <td>2012/10/13</td>
-                  <td class="text-right">
-                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                  </td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1" tabindex="0">Brenden Wagner</td>
-                  <td>Software Engineer</td>
-                  <td>San Francisco</td>
-                  <td>28</td>
-                  <td>2011/06/07</td>
-                  <td class="text-right">
-                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                  </td>
-                </tr><tr role="row" class="even">
-                  <td tabindex="0" class="sorting_1">Brielle Williamson</td>
-                  <td>Integration Specialist</td>
-                  <td>New York</td>
-                  <td>61</td>
-                  <td>2012/12/02</td>
-                  <td class="text-right">
-                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                  </td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1" tabindex="0">Caesar Vance</td>
-                  <td>Pre-Sales Support</td>
-                  <td>New York</td>
-                  <td>21</td>
-                  <td>2011/12/12</td>
-                  <td class="text-right">
-                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                  </td>
-                </tr><tr role="row" class="even">
-                  <td tabindex="0" class="sorting_1">Cedric Kelly</td>
-                  <td>Senior Javascript Developer</td>
-                  <td>Edinburgh</td>
-                  <td>22</td>
-                  <td>2012/03/29</td>
-                  <td class="text-right">
-                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                  </td>
-                </tr><tr role="row" class="odd">
-                  <td class="sorting_1" tabindex="0">Charde Marshall</td>
-                  <td>Regional Director</td>
-                  <td>San Francisco</td>
-                  <td>36</td>
-                  <td>2008/10/16</td>
-                  <td class="text-right">
-                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                  </td>
-                </tr><tr role="row" class="even">
-                  <td tabindex="0" class="sorting_1">Colleen Hurst</td>
-                  <td>Javascript Developer</td>
-                  <td>San Francisco</td>
-                  <td>39</td>
-                  <td>2009/09/15</td>
-                  <td class="text-right">
-                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i class="material-icons">favorite</i></a>
-                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i class="material-icons">dvr</i></a>
-                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i class="material-icons">close</i></a>
-                  </td>
-                </tr></tbody>
-            </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="datatables_info" role="status" aria-live="polite">Showing 1 to 10 of 40 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_full_numbers" id="datatables_paginate"><ul class="pagination"><li class="paginate_button page-item first disabled" id="datatables_first"><a href="#" aria-controls="datatables" data-dt-idx="0" tabindex="0" class="page-link">First</a></li><li class="paginate_button page-item previous disabled" id="datatables_previous"><a href="#" aria-controls="datatables" data-dt-idx="1" tabindex="0" class="page-link">Prev</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="datatables" data-dt-idx="2" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="datatables" data-dt-idx="3" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="datatables" data-dt-idx="4" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="datatables" data-dt-idx="5" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item next" id="datatables_next"><a href="#" aria-controls="datatables" data-dt-idx="6" tabindex="0" class="page-link">Next</a></li><li class="paginate_button page-item last" id="datatables_last"><a href="#" aria-controls="datatables" data-dt-idx="7" tabindex="0" class="page-link">Last</a></li></ul></div></div></div></div>
+                @forelse ($points_datas as $points_data)
+                  <tr role="row" class="odd">
+                    <td tabindex="0" class="sorting_1">{{ $points_data->id }}</td>
+                    <td>{{ $points_data->product_name }}</td>
+                    <td>{{ $points_data->point }}</td>
+                  </tr>
+                @empty
+                @endforelse
+              </tbody>
+            </table>
           </div>
         </div>
         <!-- end content-->

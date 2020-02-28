@@ -91,7 +91,11 @@ Route::prefix('admin432aKOIqr')->group(function () {
 
       Route::get('/points/total','Admin\PointsTotalController@index')->name('admin.points_total');
 
+      Route::get('/points/total/{date}','Admin\PointsTotalMonthlyController@index')->name('admin.points_total_monthly');
+
       Route::get('/points/user/{user_id}','Admin\PointsIndividualTotalController@index')->name('admin.points_individual_total');
+
+      Route::get('/points/user/{user_id}/{date}','Admin\PointsIndividualTotalMonthlyController@index')->name('admin.points_individual_total_monthly');
 
       Route::get('/admin','Admin\AdminEditController@index')->name('admin.admin_edit');
       Route::put('/admin','Admin\AdminEditController@edit');
