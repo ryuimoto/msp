@@ -35,10 +35,10 @@
                   <div class="col-md-7">
                     <div class="row">
                       <?php $prev_date = new \Carbon\Carbon($date) ?>
-                      <a href="{{ route('admin.individual_total',['user_id' => $user_id,'date' => $prev_date ]) }}"><i class="material-icons">navigate_before</i></a>
+                      <a href="{{ route('admin.individual_total_monthly',['user_id' => $user_id,'date' => $prev_date->subMonth()->format('Y年m月') ]) }}"><i class="material-icons">navigate_before</i></a>
                       <h4 class="card-title">{{ date('Y年m月',  strtotime($date)) }}</h4>
                       <?php $next_date = new \Carbon\Carbon($date) ?>
-                      <a href="{{ route('admin.individual_total',['user_id' => $user_id,'date' => $next_date ]) }}"><i class="material-icons">navigate_next</i></a>
+                      <a href="{{ route('admin.individual_total_monthly',['user_id' => $user_id,'date' => $next_date->addMonth()->format('Y年m月') ]) }}"><i class="material-icons">navigate_next</i></a>
                     </div>
                   </div>
                   <div class="col-md-5">
@@ -52,7 +52,7 @@
                     <div class="col-md-9 offset-md-3">
                       <div class="tim-typo">
                         <h2>
-                          <span class="tim-note">セールス金額</span>100万円</h2>
+                          <span class="tim-note">セールス金額</span>{{ number_format($sales_amount) }}円</h2>
                       </div>
                     </div>
                   </div>

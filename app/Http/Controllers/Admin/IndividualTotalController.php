@@ -22,13 +22,16 @@ class IndividualTotalController extends Controller
 
         $user = User::where('id',$user_id)->first();
 
-        $sales_data = Item::where('user_id',$user_id)->get();
+        $sales_data = Item::where('user_id',$user_id)
+        ->whereYear('status_change_date',$carbon->year)
+        ->whereMonth('status_change_date',$carbon->month);
 
         return view('admin.individual_total')->with([
             'user_id' => $user_id,
             'date' => $carbon,
-            'sales_datas' => $sales_data,
+            'sales_datas' => $sales_data->get(),
             'user' => $user,
+            'sales_amount' => $sales_data->sum('expected_sale_price'),
         ]);
     }
 }
