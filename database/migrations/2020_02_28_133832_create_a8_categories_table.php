@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateA8CategoryParentsTable extends Migration
+class CreateA8CategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateA8CategoryParentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('a8_category_parents', function (Blueprint $table) {
+        Schema::create('a8_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('parent_name');
+            $table->string('children_name');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateA8CategoryParentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('a8_category_parents');
+        Schema::dropIfExists('a8_categories');
     }
 }

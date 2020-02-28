@@ -28,118 +28,109 @@
             </div>
         </div>
         <div class="row">
+          @forelse ($categorys['category1'] as $category1)
             <div class="col-lg-4">
-                <div class="card ">
-                    <div class="card-header bg-success" role="tab" id="collapseListGroupHeading1">
-                      <h5 class="mb-0">
-                        <a href="#collapseListGroup1" class="collapsed text-body d-block p-3 m-n3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> 総合通販 </a>
-                      </h5>
-                    </div><!-- /.card-header -->
-                    <div class="collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">すべて</label>
-                            </div>
-                        </li>
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">ショッピングモール</label>
-                              </div>
-                        </li>
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">百貨店・デパート</label>
-                            </div>
-                        </li>
-                      </ul>
-                    </div><!-- /.collapse -->
-                </div><!-- /.card -->
+              <div class="card ">
+                  <div class="card-header bg-success" role="tab" id="collapseListGroupHeading1">
+                    <h5 class="mb-0">
+                      <a href="#collapseListGroup1" class="collapsed text-body d-block p-3 m-n3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1">{{ $category1->parent_name }} </a>
+                    </h5>
+                  </div><!-- /.card-header -->
+                  <div class="collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"> 
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="check1a">
+                          <label class="form-check-label" for="check1a"></label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div><!-- /.collapse -->
+              </div><!-- /.card -->
             </div>
-            <div class="col-lg-4">
-                <div class="card ">
-                    <div class="card-header bg-success" role="tab" id="collapseListGroupHeading1">
-                      <h5 class="mb-0">
-                        <a href="#collapseListGroup1" class="collapsed text-body d-block p-3 m-n3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> 健康 </a>
-                      </h5>
-                    </div><!-- /.card-header -->
-                    <div class="collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">すべて</label>
+          @empty
+          @endforelse
+          {{-- <div class="col-lg-4">
+              <div class="card ">
+                  <div class="card-header bg-success" role="tab" id="collapseListGroupHeading1">
+                    <h5 class="mb-0">
+                      <a href="#collapseListGroup1" class="collapsed text-body d-block p-3 m-n3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> 金融 </a>
+                    </h5>
+                  </div><!-- /.card-header -->
+                  <div class="collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"> 
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="check1a">
+                              <label class="form-check-label" for="check1a">すべて</label>
+                          </div>
+                      </li>
+                      <li class="list-group-item"> 
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="check1a">
+                              <label class="form-check-label" for="check1a">総合（健康）</label>
                             </div>
-                        </li>
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">総合（健康）</label>
-                              </div>
-                        </li>
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">医療</label>
+                      </li>
+                      <li class="list-group-item"> 
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="check1a">
+                              <label class="form-check-label" for="check1a">医療</label>
+                          </div>
+                      </li>
+                      <li class="list-group-item"> 
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="check1a">
+                              <label class="form-check-label" for="check1a">健康グッズ</label>
+                          </div>
+                      </li>
+                      <li class="list-group-item"> 
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="check1a">
+                              <label class="form-check-label" for="check1a">その他（健康）</label>
+                          </div>
+                      </li>
+                    </ul>
+                  </div><!-- /.collapse -->
+              </div><!-- /.card -->
+          </div>
+          <div class="col-lg-4">
+              <div class="card ">
+                  <div class="card-header bg-success" role="tab" id="collapseListGroupHeading1">
+                    <h5 class="mb-0">
+                      <a href="#collapseListGroup1" class="collapsed text-body d-block p-3 m-n3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> 総合通販 </a>
+                    </h5>
+                  </div><!-- /.card-header -->
+                  <div class="collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"> 
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="check1a">
+                              <label class="form-check-label" for="check1a">すべて</label>
+                          </div>
+                      </li>
+                      <li class="list-group-item"> 
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="check1a">
+                              <label class="form-check-label" for="check1a">Check A</label>
                             </div>
-                        </li>
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">健康グッズ</label>
+                      </li>
+                      <li class="list-group-item"> 
+                          <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="check1a">
+                              <label class="form-check-label" for="check1a">Check A</label>
                             </div>
-                        </li>
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">その他（健康）</label>
-                            </div>
-                        </li>
-                      </ul>
-                    </div><!-- /.collapse -->
-                </div><!-- /.card -->
-            </div>
-            <div class="col-lg-4">
-                <div class="card ">
-                    <div class="card-header bg-success" role="tab" id="collapseListGroupHeading1">
-                      <h5 class="mb-0">
-                        <a href="#collapseListGroup1" class="collapsed text-body d-block p-3 m-n3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> 総合通販 </a>
-                      </h5>
-                    </div><!-- /.card-header -->
-                    <div class="collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">すべて</label>
-                            </div>
-                        </li>
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">Check A</label>
-                              </div>
-                        </li>
-                        <li class="list-group-item"> 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="check1a">
-                                <label class="form-check-label" for="check1a">Check A</label>
-                              </div>
-                        </li>
-                      </ul>
-                    </div><!-- /.collapse -->
-                </div><!-- /.card -->
-            </div>
+                      </li>
+                    </ul>
+                  </div><!-- /.collapse -->
+              </div><!-- /.card -->
+          </div> --}}
         </div>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-lg-4">
                 <div class="card ">
                     <div class="card-header bg-success" role="tab" id="collapseListGroupHeading1">
                       <h5 class="mb-0">
-                        <a href="#collapseListGroup1" class="collapsed text-body d-block p-3 m-n3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> 総合通販 </a>
+                        <a href="#collapseListGroup1" class="collapsed text-body d-block p-3 m-n3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup1"> 金融・投資・保険 </a>
                       </h5>
                     </div><!-- /.card-header -->
                     <div class="collapse" role="tabpanel" id="collapseListGroup1" aria-labelledby="collapseListGroupHeading1" aria-expanded="false">
@@ -236,7 +227,7 @@
                     </div><!-- /.collapse -->
                 </div><!-- /.card -->
             </div>
-        </div>
+        </div> --}}
     </div>
 </div> 
 @endsection
