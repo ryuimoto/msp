@@ -16,11 +16,11 @@
                             <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false">
                         </div>
                         <div>
-                            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                                <i class="fa fa-lock fa-search"></i>&nbsp;
-                                <span id="payment-button-amount">検索</span>
-                                <span id="payment-button-sending" style="display:none;">Sending…</span>
-                            </button>
+                          <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                              <i class="fa fa-lock fa-search"></i>&nbsp;
+                              <span id="payment-button-amount">検索</span>
+                              <span id="payment-button-sending" style="display:none;">Sending…</span>
+                          </button>
                         </div>
                     </form>
                 </div>
@@ -1002,8 +1002,14 @@
                 </ul>
               </div><!-- /.collapse -->
           </div><!-- /.card -->
+          <div class="row">
+            <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                <i class="fa fa-lock fa-search"></i>&nbsp;
+                <span id="payment-button-amount">検索</span>
+                <span id="payment-button-sending" style="display:none;">Sending…</span>
+            </button>
+          </div>
       </div>
-      
     </div>
   </div>
 </div> 
