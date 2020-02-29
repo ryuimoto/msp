@@ -15,7 +15,7 @@ class A8SearchController extends Controller
         $this->middleware('auth:user');
     }
 
-    public function index($categorys)
+    public function index()
     {
 
         // $client = new Client();
@@ -34,7 +34,7 @@ class A8SearchController extends Controller
         // dd($after_login_page);
 
         return view('user.a8_search')->with([
-            'categorys' => $categorys,
+            // 'categorys' => $categorys,
         ]);
 
     }
