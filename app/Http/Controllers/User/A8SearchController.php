@@ -38,44 +38,12 @@ class A8SearchController extends Controller
         {
             return $this->index();
         }else{
-            return "ログインされてません！";
+            return "ログインできなかったようです。運営に問い合わせてください。";
         }
     }
 
     public function index()
     {
-        return view('user.a8_search')->with([
-            // 'categorys' => $categorys,
-        ]);
-
+        return view('user.a8_search');
     }
-
-    public function post()
-    {
-
-    }
-
-    // 使わない
-    // public function a8Login()
-    // {
-    //     $client = new Client();
-
-    //     $user = Auth::user();
-
-    //     $login_page = $client->request('GET', 'https://www.a8.net/');
-
-    //     $login_form = $login_page->selectButton('lgin_as_btn')->form();
-
-    //     // dd($login_form);
-        
-    //     $login_form['login'] = 'narrow617';
-    //     $login_form['passwd'] = 'Lemontea7660';
-
-    //     $after_login_page = $client->submit($login_form);
-
-    //     return $this->index();
-    //     // return "ログインします";
-
-    // }
-
 }
