@@ -32,7 +32,7 @@
             <div class="card">
               <div class="card-header">
                 <div class="row">
-                  <div class="col-md-7">
+                  <div class="col-md-9">
                     <div class="row">
                       <?php $prev_date = new \Carbon\Carbon($date) ?>
                       <a href="{{ route('admin.points_individual_total_monthly',['user_id' => $user->id,'date' => $prev_date->subMonth()->format('Y年m月')]) }}"><i class="material-icons">navigate_before</i></a>
@@ -41,8 +41,19 @@
                       <a href="{{ route('admin.points_individual_total_monthly',['user_id' => $user->id,'date' => $next_date->addMonth()->format('Y年m月')]) }}"><i class="material-icons">navigate_next</i></a>
                     </div>
                   </div>
-                  <div class="col-md-5">
-                    <input type="search" class="form-control form-control-sm" placeholder="年と月で検索" aria-controls="datatables">
+                  <div class="col-md-3">
+                    <div class="row">
+                      <form action="{{ route('admin.points_individual_total',['user_id' => $user->id,]) }}" method="get">
+                        {{ csrf_field() }}
+                        <div class="row">
+                          <input type="search" class="form-control form-control-sm" name="search" placeholder="年と月で検索" aria-controls="datatables">
+                          <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                            <i class="material-icons">search</i>
+                            <div class="ripple-container"></div>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>

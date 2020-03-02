@@ -17,10 +17,6 @@
           <h3 class="card-title">{{ $user_countns }}人</h3>
         </div>
         <div class="card-footer">
-          <div class="stats">
-            <i class="material-icons text-danger">warning</i>
-            <a href="#pablo">Get More Space...</a>
-          </div>
         </div>
       </div>
     </div>
@@ -37,20 +33,26 @@
             <table class="table">
               <thead class=" text-primary">
                 <tr><th>
-                  ID
+                  順位
                 </th>
                 <th>
                   ユーザー名
                 </th>
+                <th>
+                  登録数
+                </th>
               </tr></thead>
               <tbody>
-                @forelse ($users as $user)
+                @forelse ($ranking_users as $key => $ranking_user)
                   <tr>
                     <td>
-                      {{ $user->id }}
+                      {{ $ranking_users->firstItem()+$key }}位
                     </td>
                     <td>
-                      {{ $user->name }}
+                      {{ $ranking_user->name }}
+                    </td>
+                    <td>
+                      {{ $ranking_user->item_count }}
                     </td>
                   </tr>
                 @empty
@@ -61,7 +63,7 @@
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        {{ $users->links() }}
+        {{ $ranking_users->fragment('foo')->links() }}
       </div>
     </div>
   </div>

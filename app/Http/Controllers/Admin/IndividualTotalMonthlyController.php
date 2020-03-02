@@ -34,8 +34,6 @@ class IndividualTotalMonthlyController extends Controller
             ->orWhere('status_change_date','like','%'.$keyword.'%');
         }
 
-
-
         $user = User::where('id',$user_id)->first();
 
         $sales_data = $query->where('user_id',$user_id)

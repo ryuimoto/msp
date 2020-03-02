@@ -45,7 +45,7 @@
       <div class="logo">
         <a href="" class="simple-text logo-mini">
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="" class="simple-text logo-normal">
           MSP|管理画面
         </a>
       </div>
