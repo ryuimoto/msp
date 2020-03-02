@@ -16,21 +16,28 @@ class SalesTotalController extends Controller
         $this->middleware('auth:admin');
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $keyword = $request->input('search');
+
+        $query = Item::query();
         $carbon = new Carbon();
 
-        $sales_datas = Item::where('sale_status',2)
+        if(!empty($keyword))
+        {
+            $query->orwhere('id','like','%'. $keyword .'%')
+            ->orWhere('status_change_date','like','%'.$keyword.'%');
+        }
+
+        $sales_datas = $query->where('sale_status',2)
         ->whereYear('status_change_date',$carbon->year)
-        ->whereMonth('status_change_date',$carbon->month);
+        ->whereMonth('status_change_date',$carbon->month)
+        ->orderBy('id','asc')->paginate(5);
         
         return view('admin.sales_total')->with([
             'date' => $carbon,
             'sales_amount' => $sales_datas->sum('expected_sale_price'), 
-            'users' => $sales_datas->paginate(10),
+            'users' => $sales_datas,
         ]);
     }
-
-
-
 }

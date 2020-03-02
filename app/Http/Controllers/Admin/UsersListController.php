@@ -22,7 +22,10 @@ class UsersListController extends Controller
 
         if(!empty($keyword))
         {
-            $query->where('id','like','%'. $keyword .'%')
+            $id = explode(',', $keyword);
+
+            $query->whereIn('id',$id)
+            ->orwhere('id','like','%'. $keyword .'%')
             ->orWhere('name','like','%'.$keyword.'%')
             ->orWhere('real_name','like','%'.$keyword.'%')
             ->orWhere('email','like','%'.$keyword.'%')
@@ -36,7 +39,6 @@ class UsersListController extends Controller
         return view('admin.users_list')->with([
             'users' => $users,
             'search' => $keyword,
-
         ]);
     }
 

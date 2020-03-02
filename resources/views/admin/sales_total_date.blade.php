@@ -44,7 +44,6 @@
                   <div class="col-md-3">
                     <div class="row">
                       <form action="{{ route('admin.sales_total') }}" method="get">
-                        {{ csrf_field() }}
                         <div class="row">
                           <input type="search" class="form-control form-control-sm" name="search" placeholder="年と月で検索" aria-controls="datatables">
                           <button type="submit" class="btn btn-white btn-round btn-just-icon">

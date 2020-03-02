@@ -1,14 +1,14 @@
 @extends('admin.layouts.main_layout')
 @section('title')
-  MSP管理側|全ユーザーセールス集計
-@endsection
-@section('css')
-  <link rel="stylesheet" href="{{ asset('css/admin/users_list.css') }}">
+  MSP管理側|ユーザー個別集計
 @endsection
 @section('item_name')
-  <a class="navbar-brand" href="#pablo">全ユーザーセールス集計</a>
+  <a class="navbar-brand" href="#pablo">ユーザー個別集計</a>
 @endsection
 @section('contents')
+  <div class="header text-center ml-auto mr-auto">
+    <h3 class="title">{{ $user->name }}さん</h3>
+  </div>
   <div class="row">
     <div class="col-md-8 ml-auto mr-auto">
       <div class="page-categories">
@@ -35,15 +35,15 @@
                   <div class="col-md-9">
                     <div class="row">
                       <?php $prev_date = new \Carbon\Carbon($date) ?>
-                      <a href="{{ route('admin.sales_total_monthly',['date' => $prev_date->subMonth()->format('Y年m月')]) }}"><i class="material-icons">navigate_before</i></a>
+                      <a href="{{ route('admin.individual_total_monthly',['user_id' => $user_id,'date' => $prev_date->subMonth()->format('Y年m月') ]) }}"><i class="material-icons">navigate_before</i></a>
                       <h4 class="card-title">{{ date('Y年m月',  strtotime($date)) }}</h4>
                       <?php $next_date = new \Carbon\Carbon($date) ?>
-                      <a href="{{ route('admin.sales_total_monthly',['date' => $next_date->addMonth()->format('Y年m月')]) }}"><i class="material-icons">navigate_next</i></a>
+                      <a href="{{ route('admin.individual_total_monthly',['user_id' => $user_id,'date' => $next_date->addMonth()->format('Y年m月') ]) }}"><i class="material-icons">navigate_next</i></a>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="row">
-                      <form action="{{ route('admin.sales_total') }}" method="get">
+                      <form action="{{ route('admin.individual_total',['user_id' => $user_id,]) }}" method="get">
                         {{ csrf_field() }}
                         <div class="row">
                           <input type="search" class="form-control form-control-sm" name="search" placeholder="年と月で検索" aria-controls="datatables">
@@ -63,8 +63,7 @@
                     <div class="col-md-9 offset-md-3">
                       <div class="tim-typo">
                         <h2>
-                          <span class="tim-note">セールス金額</span>{{ number_format($sales_amount) }}円
-                        </h2>
+                          <span class="tim-note">セールス金額</span>{{ number_format($sales_amount) }}円</h2>
                       </div>
                     </div>
                   </div>
@@ -124,35 +123,22 @@
               <thead>
                 <tr role="row">
                   <th rowspan="1" colspan="1" style="width: 231px;" aria-sort="ascending" aria-label="Name: activate to sort column descending">ID</th>
-                  <th rowspan="1" colspan="1" style="width: 337px;" aria-label="Position: activate to sort column ascending">ユーザー名</th>
+                  <th rowspan="1" colspan="1" style="width: 337px;" aria-label="Position: activate to sort column ascending">商品名</th>
                   <th rowspan="1" colspan="1" style="width: 174px;" aria-label="Office: activate to sort column ascending">セールス金額</th>
                 </tr>
               </thead>
               <tbody>
-                @forelse ($users as $user)
+                @forelse ($sales_datas as $sales_data)
                   <tr role="row" class="odd">
-                    <td tabindex="0" class="sorting_1"><a id="big" href="{{ route('admin.individual_total',['user_id' => $user->user->id ]) }}">{{ $user->user->id }}</a></td>
-                    <td><a id="big" href="{{ route('admin.individual_total',['user_id' => $user->user->id]) }}">{{ $user->user->name }}</a></td>
-                    <td><a id="big" href="{{ route('admin.individual_total',['user_id' => $user->user->id]) }}">{{ number_format($user->expected_sale_price) }}</a></td>
+                    <td tabindex="0" class="sorting_1">{{ $sales_data->id }}</td>
+                    <td>{{ $sales_data->product_name }}</td>
+                    <td>{{ number_format($sales_data->expected_sale_price) }}円</td>
                   </tr>
                 @empty
                 @endforelse
               </tbody>
             </table>
           </div>
-        </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-7 offset-md-5">
-              {{ $users->links() }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    </div>
         </div>
         <!-- end content-->
       </div>
