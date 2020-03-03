@@ -46,7 +46,7 @@
                       <form action="{{ route('admin.individual_total',['user_id' => $user_id,]) }}" method="get">
                         {{ csrf_field() }}
                         <div class="row">
-                          <input type="search" class="form-control form-control-sm" name="search" placeholder="年と月で検索" aria-controls="datatables">
+                          <input type="date" class="form-control form-control-sm" name="search" placeholder="年と月で検索" aria-controls="datatables">
                           <button type="submit" class="btn btn-white btn-round btn-just-icon">
                             <i class="material-icons">search</i>
                             <div class="ripple-container"></div>
@@ -144,7 +144,10 @@
       </div>
       <!--  end card  -->
     </div>
-   </div>
+  </div>
+      </div>
+    </div>
+  </div>
 @endsection
 @section('js')
   <script>

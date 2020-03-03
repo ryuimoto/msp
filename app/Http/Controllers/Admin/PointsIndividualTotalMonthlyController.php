@@ -36,7 +36,7 @@ class PointsIndividualTotalMonthlyController extends Controller
             'date' => $carbon,
             'user' => $user,
             'points_amount' => $points_datas->sum('point'),
-            'users' => $points_datas->paginate(10),
+            'points_datas' => $points_datas->paginate(10),
         ]);
 
     }
