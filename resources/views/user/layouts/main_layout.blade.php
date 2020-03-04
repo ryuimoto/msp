@@ -8,10 +8,8 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-
     <!-- Title Page-->
     <title>@yield('title')</title>
-
     <!-- Fontfaces CSS-->
     <link href="{{ asset('library/CoolAdmin-master/css/font-face.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('library/CoolAdmin-master/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
@@ -39,7 +37,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="{{ route('user.top') }}">
                             <h1>MSP</h1>
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -59,7 +57,7 @@
                         </li>
                         <li id="search" class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>アイテム検索</a>
+                                <i class="fas fa-search"></i>アイテム検索</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li id="a8">
                                     <a href="{{ route('user.a8') }}">A8</a>
@@ -165,6 +163,8 @@
                             <form class="form-header" action="" method="POST">
                             </form>
                             <div class="header-button">
+                                <div class="noti-wrap">
+                                </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="content">

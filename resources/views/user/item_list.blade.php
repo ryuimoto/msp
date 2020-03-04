@@ -6,42 +6,44 @@
     <link rel="stylesheet" href="{{ asset('css/user/item_list.css') }}">
 @endsection
 @section('contents')
-<div class="section__content section__content--p30">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <!-- DATA TABLE-->
-                <table class="table table-borderless table-data3">
-                    <thead>
-                        <tr>
-                            <th>商品名</th>
-                            <th>購入金額</th>
-                            <th>売却予定額</th>
-                            <th>ポイント</th>
-                            <th>売却ステータス</th>
-                            <th>メモ</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($items as $item)
-                            <tr>
-                                <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->product_name }}</a></td>
-                                <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ number_format($item->purchase_price) }}円</a></td>
-                                <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ number_format($item->expected_sale_price) }}円</a></td>
-                                <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->point }}</a></td>
-                                <td><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->saleStatus['name'] }}</a></td>
-                                <td>{{ $item->memo }}</td>
-                            </tr>
-                        @empty
-                        @endforelse
-                    </tbody>
-                </table>
-                <!-- END DATA TABLE-->
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    <!-- DATA TABLE-->
+                    <div class="table-responsive m-b-30">
+                        <table class="table table-borderless table-data3 text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>商品名</th>
+                                    <th>購入金額</th>
+                                    <th>売却予定額</th>
+                                    <th>ポイント</th>
+                                    <th>売却ステータス</th>
+                                    <th width="300">メモ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($items as $item)
+                                    <tr>
+                                        <td class="th-description"><a  href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->product_name }}</a></td>
+                                        <td class="th-description"><a  href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ number_format($item->purchase_price) }}円</a></td>
+                                        <td class="th-description"><a  href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ number_format($item->expected_sale_price) }}円</a></td>
+                                        <td class="th-description"><a  href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->point }}</a></td>
+                                        <td class="th-description"><a  href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->saleStatus['name'] }}</a></td>
+                                        <td width="300"><a href="{{ route('user.item_details',['item_id' => $item->id]) }}">{{ $item->memo }}</a></td>
+                                    </tr>
+                                @empty
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- END DATA TABLE-->
+                </div>
             </div>
+    
         </div>
-    </div>
-</div> 
-
+    </div> 
 @endsection
 @section('js')
      <!-- Jquery JS-->

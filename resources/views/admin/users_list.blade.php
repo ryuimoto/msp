@@ -25,11 +25,11 @@
                 <tr>
                   <th class="th-description">ID</th>
                   <th class="th-description">ユーザー名</th>
-                  <th class="text-right">本名</th>
-                  <th class="text-right">登録アイテム数</th>
-                  <th class="text-right">登録日時</th>
-                  <th class="text-right">最終操作日時</th>
-                  <th class="text-right">最終ログイン日時</th>
+                  <th class="th-description">本名</th>
+                  <th class="th-description">登録アイテム数</th>
+                  <th class="th-description">登録日時</th>
+                  <th class="th-description">最終操作日時</th>
+                  <th class="th-description">最終ログイン日時</th>
                 </tr>
               </thead>
               <tbody>
