@@ -42,13 +42,13 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="#">
+                            <a href="{{ route('user.login') }}">
                                 <h1>MSP</h1>
                             </a>
                         </div>
                         <div class="login-form">
                             @yield('content')
-                            <form method="post" action="{{ route('user.password_reset') }}">
+                            <form method="post" action="{{ route('user.password_email') }}">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     @if ($errors->has('email'))
@@ -66,9 +66,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     <!-- Jquery JS-->
     <script src="{{ asset('library/CoolAdmin-master/vendor/jquery-3.2.1.min.js') }}"></script>
     <!-- Bootstrap JS-->

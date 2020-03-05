@@ -26,9 +26,9 @@ Route::post('/login','User\Auth\LoginController@login');
 Route::get('logout','User\Auth\LoginController@logout')->name('user.logout');
 
 Route::get('/password/reset','User\Auth\ForgotPasswordController@showLinkRequestForm')->name('user.password_reset');
-Route::post('/password/reset','User\Auth\ForgotPasswordController@sendResetLinkEmail');
-
-Route::get('/password/reset/{token}','User\Auth\ResetPasswordController@passwordResetToken')->name('user.password_reset_token');
+Route::post('/password/email','User\Auth\ForgotPasswordController@sendResetLinkEmail')->name('user.password_email');
+Route::get('/password/reset/{token}','User\Auth\ResetPasswordController@showResetForm')->name('user.password_reset_token'); // メール内をurlを開いたときのroute
+Route::post('/password/reset','User\Auth\ResetPasswordController@reset');
 
 Route::middleware('auth:user')->group(function () { 
     Route::get('/','User\TopController@index')->name('user.top');
