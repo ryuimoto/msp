@@ -45,4 +45,33 @@ class A8SearchController extends Controller
     {
         return view('user.a8_search');
     }
+
+    public function test(Request $request)
+    {
+        $client = new Client();
+        $user = Auth::user();
+        $login_data = User::where('id',$user->id)->first();
+
+        $login_page = $client->request('GET', 'https://www.a8.net/');
+
+        $login_form = $login_page->selectButton('lgin_as_btn')->form();
+
+        $login_form['login'] = $login_data->a8_acount_id;
+        $login_form['passwd'] = $login_data->a8_acount_pass;
+    
+        $after_login_page = $client->submit($login_form);
+
+        
+        ///  ここまでログイン
+
+
+        $after_login_page = $client->request('GET', 'https://pub.a8.net/a8v2/asSearchAction.do');
+
+        // dd($after_login_page->getUri());
+
+        return redirect($after_login_page->getUri());
+
+
+
+    }
 }

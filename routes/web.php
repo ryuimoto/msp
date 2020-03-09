@@ -34,6 +34,7 @@ Route::middleware('auth:user')->group(function () {
     Route::get('/','User\TopController@index')->name('user.top');
 
     Route::get('/search/a8','User\A8SearchController@a8Login')->name('user.a8');
+    Route::post('/search/a8','User\A8SearchController@test');
 
     Route::get('/search/rakuten','User\RakutenSearchController@index')->name('user.rakuten');
 
@@ -56,6 +57,12 @@ Route::middleware('auth:user')->group(function () {
 
     Route::get('/acount','User\AcountEditController@index')->name('user.acount_edit');
     Route::put('/acount','User\AcountEditController@edit');
+
+    Route::get('/test', function () {
+        // return view('welcome');
+        return "test";
+    });
+
 });
 
 // 管理側
