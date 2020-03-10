@@ -63,6 +63,11 @@ Route::middleware('auth:user')->group(function () {
         return "test";
     });
 
+    Route::get('/test2', function () {
+        // return view('welcome');
+        return "test2";
+    });
+
 });
 
 // 管理側
