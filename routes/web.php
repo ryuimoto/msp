@@ -112,6 +112,11 @@ Route::middleware('auth:user')->group(function () {
         // return view('welcome');
         return "test11";
     });
+
+    Route::get('/test12', function () {
+        // return view('welcome');
+        return "test12";
+    });
 });
 
 // 管理側
