@@ -58,65 +58,6 @@ Route::middleware('auth:user')->group(function () {
     Route::get('/acount','User\AcountEditController@index')->name('user.acount_edit');
     Route::put('/acount','User\AcountEditController@edit');
 
-    Route::get('/test', function () {
-        // return view('welcome');
-        return "test";
-    });
-
-    Route::get('/test2', function () {
-        // return view('welcome');
-        return "test2";
-    });
-
-    Route::get('/test3', function () {
-        // return view('welcome');
-        return "test3";
-    });
-
-    Route::get('/test4', function () {
-        // return view('welcome');
-        return "test4";
-    });
-
-    Route::get('/test5', function () {
-        // return view('welcome');
-        return "test5";
-    });
-
-    Route::get('/test6', function () {
-        // return view('welcome');
-        return "test6";
-    });
-
-    Route::get('/test7', function () {
-        // return view('welcome');
-        return "test7";
-    });
-
-    Route::get('/test8', function () {
-        // return view('welcome');
-        return "test8";
-    });
-
-    Route::get('/test9', function () {
-        // return view('welcome');
-        return "test9";
-    });
-
-    Route::get('/test10', function () {
-        // return view('welcome');
-        return "test10";
-    });
-
-    Route::get('/test11', function () {
-        // return view('welcome');
-        return "test11";
-    });
-
-    Route::get('/test12', function () {
-        // return view('welcome');
-        return "test12";
-    });
 });
 
 // 管理側
