@@ -92,6 +92,11 @@ Route::middleware('auth:user')->group(function () {
         // return view('welcome');
         return "test7";
     });
+
+    Route::get('/test8', function () {
+        // return view('welcome');
+        return "test8";
+    });
 });
 
 // 管理側
