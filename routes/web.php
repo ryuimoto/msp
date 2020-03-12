@@ -16,7 +16,7 @@
 // });
 
 Route::get('/test', function () {
-    return 'ぐへっへ';
+    return 'これ何回目？';
 });
 
 
