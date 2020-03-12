@@ -16,7 +16,7 @@
 // });
 
 Route::get('/test', function () {
-    return 'かえた';
+    return 'ぐへっへえ';
 });
 
 
