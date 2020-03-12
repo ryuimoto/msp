@@ -16,8 +16,10 @@
 // });
 
 Route::get('/test', function () {
-    return 'test';
+    return 'かえた';
 });
+
+
 
 
 Auth::routes();

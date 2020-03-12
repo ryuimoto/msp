@@ -10,19 +10,44 @@
             <div class="card">
                 <div class="card-header">プログラム検索</div>
                 <div class="card-body">
-                    <form name="ads_search_form" method="post" accept-charset="EUC-JP" target="_blank" action="https://pub.a8.net/a8v2/asSearchAction.do">
-                      {{ csrf_field() }}
-                        <div class="form-group">
-                            <label for="cc-payment" class="control-label mb-1">キーワードを入力</label>
-                            <input id="cc-pament" name="keyword" type="text" class="form-control" aria-required="true" aria-invalid="false">
-                        </div>
-                        <div>
-                          <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                              <i class="fa fa-lock fa-search"></i>&nbsp;
-                              <span id="payment-button-amount">検索</span>
-                              <span id="payment-button-sending" style="display:none;">Sending…</span>
-                          </button>
-                        </div>
+                  <form name="ads_search_form" method="post" accept-charset="EUC-JP" target="_blank" action="{{ route('user.a8') }}">
+                  {{-- <form name="ads_search_form" method="post" target="_blank" accept-charset="EUC-JP" action="https://pub.a8.net/a8v2/asSearchAction.do"> --}}
+                    {{ csrf_field() }}
+                    <input type="hidden" name="act" value="search">
+                    <input type="hidden" name="searchTarget" value="">
+                    <input type="hidden" name="phrase" value="">
+                    <input type="hidden" name="enc" value="">
+                    {{-- <input maxlength="40" type="text" name="keyword" id="headerSearchKeyword" value=""> --}}
+                    <div class="form-group">
+                      <label for="cc-payment" class="control-label mb-1">キーワードを入力</label>
+                      <input id="cc-pament" name="keyword" type="text" id="headerSearchKeyword" value="" class="form-control" aria-required="true" aria-invalid="false">
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" value="検 索" onclick="return ads_search();" class="searchBtn btn btn-lg btn-info btn-block">
+                    </div>
+                    <input type="text" style="display: none;" name="dummy">
+                    <input type="hidden" name="buttonId" value="1" />
+                    <input type="hidden" name="clickInsId" />
+                    <input type="hidden" name="clickCategoryCode" />
+                    <input type="hidden" name="clickRelationalEcsSubCategoryCode" />
+                    <input type="hidden" name="pageNo" />
+                    <input type="hidden" name="viewType" />
+                    <input type="hidden" name="sealed" value="27031516741227" />
+                    <input type="hidden" name="programType" />
+                    <input type="hidden" name="new" />
+                    <input type="hidden" name="autoAgreement" />
+                    <input type="hidden" name="supportedFlgSp" />
+                    <input type="hidden" name="supportedFlgMb" />
+                    <input type="hidden" name="spSupportFlg" />
+                    <input type="hidden" name="twitterType" />
+                    <input type="hidden" name="campaign" />
+                    <input type="hidden" name="pprStar" />
+                    <input type="hidden" name="adType" />
+                    <input type="hidden" name="click" />
+                    <input type="hidden" name="cooperationStatus" />
+                    <input type="hidden" name="wchanceFlg" />
+                    <input type="hidden" name="ecsMainCtgCd"/>
+                  </form>
                 </div>
             </div>
         </div>
