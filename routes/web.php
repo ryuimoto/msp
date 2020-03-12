@@ -38,8 +38,8 @@ Route::post('/password/reset','User\Auth\ResetPasswordController@reset');
 Route::middleware('auth:user')->group(function () { 
     Route::get('/','User\TopController@index')->name('user.top');
 
-    Route::get('/search/a8','User\A8SearchController@a8Login')->name('user.a8');
-    Route::post('/search/a8','User\A8SearchController@test');
+    Route::get('/search/a8','User\A8SearchController@index')->name('user.a8');
+    Route::post('/search/a8','User\A8SearchController@search');
 
     Route::get('/search/rakuten','User\RakutenSearchController@index')->name('user.rakuten');
 
