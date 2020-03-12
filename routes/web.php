@@ -15,13 +15,6 @@
 //     return view('welcome');
 // });
 
-Route::get('/test', function () {
-    return 'これ3回目？';
-});
-
-
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
