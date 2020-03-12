@@ -16,7 +16,7 @@
 // });
 
 Route::get('/test', function () {
-    return 'これ何回目？';
+    return 'これ3回目？';
 });
 
 
