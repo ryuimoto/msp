@@ -16,7 +16,7 @@
 // });
 
 Route::get('/test', function () {
-    return 'ぐへっへえ';
+    return 'ふぇgrhjrtっyjkty';
 });
 
 
