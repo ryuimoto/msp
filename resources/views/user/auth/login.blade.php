@@ -41,7 +41,7 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="#">
+                            <a href="{{ route('user.login') }}">
                                 <h1>MSP</h1>
                             </a>
                         </div>

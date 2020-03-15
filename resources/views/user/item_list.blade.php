@@ -41,7 +41,6 @@
                     <!-- END DATA TABLE-->
                 </div>
             </div>
-    
         </div>
     </div> 
 @endsection
