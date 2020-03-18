@@ -19,7 +19,7 @@ class TopController extends Controller
         $ranking_users = User::orderBy('item_count', 'desc')
         ->limit(50)->paginate(5);
 
-        return view('Admin.top')->with([
+        return view('admin.top')->with([
             'user_countns' => User::count(),
             'ranking_users' => $ranking_users,
         ]);

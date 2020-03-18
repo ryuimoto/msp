@@ -30,10 +30,6 @@ Route::post('/password/email','User\Auth\ForgotPasswordController@sendResetLinkE
 Route::get('/password/reset/{token}','User\Auth\ResetPasswordController@showResetForm')->name('user.password_reset_token'); // メール内をurlを開いたときのroute
 Route::post('/password/reset','User\Auth\ResetPasswordController@reset');
 
-Route::get('/phpinfo', function () {
-  return phpinfo();
-});
-
 Route::middleware('auth:user')->group(function () { 
     Route::get('/','User\TopController@index')->name('user.top');
 
