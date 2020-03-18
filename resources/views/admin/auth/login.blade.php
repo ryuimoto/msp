@@ -97,15 +97,6 @@
                       </div>
                     </div>
                   </span>
-                  <span class="bmd-form-group">
-                    <div class="input-group">
-                      <div class="form-check">
-                        <label>
-                          <a href="#">パスワードを忘れた方へ</a>
-                        </label>
-                      </div>
-                    </div>
-                  </span>
                 </div>
                 <div class="card-footer justify-content-center">
                   <a href="javascript:form1.submit()" class="btn btn-rose btn-link btn-lg">サインイン</a>
