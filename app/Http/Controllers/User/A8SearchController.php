@@ -38,7 +38,7 @@ class A8SearchController extends Controller
         // $login_form['passwd'] = $login_data->a8_acount_pass;
 
         $login_form['login'] = 'narrow617';
-        $login_form['passwd'] = 'Lemontea7660';
+        $login_form['passwd'] = 'test12345';
     
         $after_login_page = $client->submit($login_form);
 
