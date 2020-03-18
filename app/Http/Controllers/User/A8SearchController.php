@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Goutte\Client;
 use Illuminate\Support\Facades\Auth;
-use Path\To\DOMDocument;
 
 use App\A8Category;
 use App\User;
