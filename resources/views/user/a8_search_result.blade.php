@@ -8,10 +8,10 @@
 @section('contents')
   
   <div class="section__content section__content--p30">
-    <div class="container-fluid">
-        <div class="row">
-            <button class="btn btn-primary" onclick="location.href='{{ route('user.a8') }}'">戻る</button>
-        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <button class="btn btn-primary" onclick="location.href='{{ route('user.a8') }}'">戻る</button>
+            </div>
         <br>
       <div class="row">
         <div class="col-lg-12">
@@ -58,6 +58,12 @@
                     </div>
                 </div>
             @empty
+                <div class="row">
+                    <div class="col-lg-6 offset">
+
+                    </div>
+                    <h4>ヒットしませんでした</h4>
+                </div>
             @endforelse
         </div>
       </div>
