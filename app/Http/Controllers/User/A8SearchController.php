@@ -30,7 +30,7 @@ class A8SearchController extends Controller
 
         $login_page = $client->request('GET', 'https://www.a8.net/');
 
-        dd($login_page);
+        // dd($login_page);
 
         $login_form = $login_page->selectButton('lgin_as_btn')->form();
 
