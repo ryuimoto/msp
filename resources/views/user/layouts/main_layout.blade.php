@@ -63,9 +63,6 @@
                                 <li id="a8">
                                     <a href="{{ route('user.a8') }}">A8</a>
                                 </li>
-                                <li id="rakuten">
-                                    <a href="{{ route('user.rakuten') }}">楽天</a>
-                                </li>
                             </ul>
                         </li>
                         <li class="has-sub">
@@ -123,9 +120,6 @@
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li id="a8">
                                     <a href="{{ route('user.a8') }}">A8</a>
-                                </li>
-                                <li id="rakuten">
-                                    <a href="{{ route('user.rakuten') }}">楽天</a>
                                 </li>
                             </ul>
                         </li>

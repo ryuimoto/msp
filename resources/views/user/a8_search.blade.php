@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header">プログラム検索</div>
                 <div class="card-body">
-                  <form name="ads_search_form" method="post" target="_blank" action="{{ route('user.a8') }}">
+                  <form name="ads_search_form" method="post" action="{{ route('user.a8') }}">
                     {{-- <form name="ads_search_form" method="post" accept-charset="EUC-JP" action="https://pub.a8.net/a8v2/asSearchAction.do"> --}}
                     {{ csrf_field() }}
                     <input type="hidden" name="act" value="search">

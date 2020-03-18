@@ -36,7 +36,7 @@ Route::middleware('auth:user')->group(function () {
     Route::get('/search/a8','User\A8SearchController@index')->name('user.a8');
     Route::post('/search/a8','User\A8SearchController@search');
 
-    Route::get('/search/rakuten','User\RakutenSearchController@index')->name('user.rakuten');
+    // Route::get('/search/rakuten','User\RakutenSearchController@index')->name('user.rakuten');
 
     Route::get('/items','User\ItemListController@index')->name('user.item_list');
 

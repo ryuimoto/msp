@@ -6,20 +6,20 @@
     <link rel="stylesheet" href="{{ asset('css/user/a8_search_result.css') }}">
 @endsection
 @section('contents')
-  
   <div class="section__content section__content--p30">
         <div class="container-fluid">
             <div class="row">
-                <button class="btn btn-primary" onclick="location.href='{{ route('user.a8') }}'">戻る</button>
+                <button class="btn btn-primary" onclick="location.href='{{ route('user.a8') }}'">検索に戻る</button>
             </div>
+        </div>
         <br>
       <div class="row">
         <div class="col-lg-12">
-            @forelse ($result_datas as $result_data)
+            @forelse ($result_datas as $key => $result_data)
                 <div class="card">
                     <div class="card-header">
-                        <strong>ID</strong>
-                        <small>1</small>
+                        <strong>No</strong>
+                        <small>{{ $key+1 }}</small>
                     </div>
                     <div class="card-body card-block">
                         <div class="form-group">
@@ -40,18 +40,6 @@
                             <h4>{{ $result_data['performance_reward'] }}</h4>
                         </div>
                         <div class="form-group">
-                            <label for="street" class=" form-control-label">提携審査</label>
-                            <h4>{{ $result_data['cooperation_screening'] }}</h4>
-                        </div>
-                        <div class="form-group">
-                            <label for="street" class=" form-control-label">再訪問期間</label>
-                            <h4>{{ $result_data['return_visit_period'] }}</h4>
-                        </div>
-                        <div class="form-group">
-                            <label for="street" class=" form-control-label">成果確定目安</label>
-                            <h4>{{ $result_data['estimated_results'] }}</h4>
-                        </div>
-                        <div class="form-group">
                             <label for="country" class=" form-control-label">キーワード</label>
                             <h4>{{ $result_data['keyword'] }}</h4>
                         </div>
@@ -59,10 +47,9 @@
                 </div>
             @empty
                 <div class="row">
-                    <div class="col-lg-6 offset">
-
+                    <div class="col-lg-6 offset-md-6">
+                        <h4>ヒットしませんでした</h4>
                     </div>
-                    <h4>ヒットしませんでした</h4>
                 </div>
             @endforelse
         </div>
@@ -91,7 +78,6 @@
      <script src="{{ asset('library/CoolAdmin-master/vendor/chartjs/Chart.bundle.min.js') }}"></script>
      <script src="{{ asset('library/CoolAdmin-master/vendor/select2/select2.min.js') }}">
      </script>
- 
      <!-- Main JS-->
      <script src="{{ asset('library/CoolAdmin-master/js/main.js') }}"></script>
      <script>

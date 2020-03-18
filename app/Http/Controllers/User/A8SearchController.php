@@ -51,29 +51,31 @@ class A8SearchController extends Controller
 
             $result = $client->submit($search_form);
 
-            // dd($result->filter('div.scdWrapper'));
-            dd($result->filter('div.scdWrapper')->text());
+            // dd($result->filter('div'));
+            // dd($result->filter('div.scdWrapper')->text());
+            // dd($result->filter('td.iconArea1')->text());
 
-            // $result_datas = [];
+            $result_datas = [];
 
-            // $result->filter('td.iconArea1')->each(function($values) use(&$result_datas){            
-            //     $retu = $values->filter('tr')->eq(4)->filterXPath('./*/td');
+            $result->filter('td.iconArea1')->each(function($values) use(&$result_datas){            
+                // $retu = $values->filter('tr')->eq(4)->filterXPath('./*/td');
 
-            //     $result_datas[] = [
-            //         'advertiser' => $values->filter('tr')->eq(0)->filterXPath('./*/td')->text(),
-            //         'program_name' => $values->filter('tr')->eq(1)->filterXPath('./*/td')->text(),
-            //         'corresponding_device' => $values->filter('tr')->eq(2)->filterXPath('./*/td')->text(),
-            //         'performance_reward' => $values->filter('tr')->eq(3)->filterXPath('./*/td')->text(),
-            //         'cooperation_screening' => $retu->eq(0)->text(),
-            //         'return_visit_period' => $retu->eq(1)->text(),
-            //         'estimated_results' => $retu->eq(2)->text(),
-            //         'keyword' => $values->filter('tr')->eq(5)->filterXPath('./*/td')->text(),
-            //     ];
-            // });
+                $result_datas[] = [
+                    'advertiser' => $values->filter('tr')->eq(0)->filterXPath('./*/td')->text(),
+                    'program_name' => $values->filter('tr')->eq(1)->filterXPath('./*/td')->text(),
+                    'corresponding_device' => $values->filter('tr')->eq(2)->filterXPath('./*/td')->text(),
+                    'performance_reward' => $values->filter('tr')->eq(3)->filterXPath('./*/td')->text(),
+                    // 'cooperation_screening' => $retu->eq(0)->text(),
+                    // 'return_visit_period' => $retu->eq(1)->text(),
+                    // 'estimated_results' => $retu->eq(2)->text(),
+                    'keyword' => $values->filter('tr')->eq(5)->filterXPath('./*/td')->text(),
+                ];
 
-            // return view('user.a8_search_result')->with([
-            //     'result_datas' => $result_datas,
-            // ]);
+            });
+
+            return view('user.a8_search_result')->with([
+                'result_datas' => $result_datas
+            ]);
 
             #new_mainArea2clm > form > table.programSearch > tbody > tr:nth-child(1) > td.iconArea1
 
